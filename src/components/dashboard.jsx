@@ -1,16 +1,15 @@
 // Main Dashboard - dashboard.jsx
-import React from "react";
+import React, { Component } from "react";
 import "./dashboard.css";
 
-export default () => {
-	return(
-		<main>
-			<div className="row">
-				<div className="container">
-				{dashLeftColumn}
-				{dashRightColumn}
-				</div>
+class dashboard extends Component{
+	render(){
+		return(
+			<div>
+			TEST-DASHBOARD
 			</div>
-		</main>
-	);
+			);
 	}
+}
+
+export default dashboard;

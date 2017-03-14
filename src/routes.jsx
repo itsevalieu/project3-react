@@ -3,18 +3,16 @@ import { Route, IndexRoute } from 'react-router';
 
 import App from './App';
 import Home from './containers/Home';
-/*
-import Chat from './containers/Chat';
-import LeaderBoard from './containers/LeaderBoard';
-import Generator from './containers/Generator';
+import Dashboard from './components/Dashboard';
 import About from './containers/About';
-*/
-
 
 export default () => {
 	return(
 		<Route path='/' component={App}>
 			<IndexRoute component={Home}/>
+
+			<Route path='/dashboard' component={dashboard} />
+			<Route path='/about' component={About} />
 		</Route>
 		);
  };
