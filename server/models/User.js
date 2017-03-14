@@ -1,7 +1,9 @@
 var mongoose = require('mongoose');
 var bcrypt = require("bcryptjs");
 var Schema = mongoose.Schema;
- 
+
+
+//Todo: 
 var UserSchema = new Schema({
 	
 	firstName: { 
@@ -50,8 +52,7 @@ var UserSchema = new Schema({
 
 }, {
 	timestamps: {createdAt: "createdAt", updatedAt: "updatedAt"},
-	toJSON: {getters: true}, //both path and virtual getters
-	id: false
+	toJSON: {getters: true} //both path and virtual getters
 }
 );
 
@@ -65,5 +66,21 @@ module.exports.createUser = function(newUser, callback){
 	        newUser.password = hash;
 	        newUser.save(callback);
 	    });
+	});
+}
+
+module.exports.getUserByUsername = function(username, callback){
+	var query = {username: username};
+	User.findOne(query, callback);
+}
+
+module.exports.getUserById = function(id, callback){
+	User.findById(id, callback);
+}
+
+module.exports.comparePassword = function(candidatePassword, hash, callback){
+	bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
+    	if(err) throw err;
+    	callback(null, isMatch);
 	});
 }
