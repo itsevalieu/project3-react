@@ -1,16 +1,19 @@
 import React, { PropTypes, Component } from 'react';
-import Homepage from './components/Homepage';
+import './App.css';
+//import Homepage from './components/Homepage';
+import Header from './components/Header';
 import Footer from './components/Footer';
 
 
-class App extends Component{
+class App extends Component {
   render() {
     return(
-      <div className="homepage">
-      <Homepage />
-      {this.props.routes}
-      {this.props.children}
-      <Footer />
+      <div className="home">
+        <Header />
+        <div className="container App-content">
+          {console.log(this.props.routes)}
+        </div>
+        <Footer />
       </div>
       );
   }
@@ -19,6 +22,6 @@ class App extends Component{
 App.propTypes = {
   children: PropTypes.node,
   routes: PropTypes.array
-}
- 
+};
+
 export default App;

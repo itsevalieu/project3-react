@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
-import Header from './components/Header';
-import dashboard from './components/dashboard';
-import Footer from './components/Footer';
+import Header from '../components/Header';
+import dashboard from '../components/dashboard';
+import Footer from '../components/Footer';
 
 
 class Dashboard extends Component {

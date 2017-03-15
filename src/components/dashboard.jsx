@@ -1,6 +1,6 @@
 // Main Dashboard - dashboard.jsx
 import React, { Component } from "react";
-import "./dashboard.css";
+//import "./dashboard.css";
 
 class dashboard extends Component{
 	render(){
