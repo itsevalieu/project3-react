@@ -1,6 +1,5 @@
 import React, { PropTypes, Component } from 'react';
 import './App.css';
-//import Homepage from './components/Homepage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -11,7 +10,7 @@ class App extends Component {
       <div className="home">
         <Header />
         <div className="container App-content">
-          {console.log(this.props.routes)}
+        {this.props.children}
         </div>
         <Footer />
       </div>

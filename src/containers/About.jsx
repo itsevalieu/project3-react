@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-//import MainTeam from './components/MainTeam';
-//import SecondaryTeam from './components/SecondaryTeam';
 
 class About extends Component {
 	render() {
@@ -9,7 +7,6 @@ class About extends Component {
 			Placeholder for Teams
 			</div>
 		);
-		
 	}
 }
 
