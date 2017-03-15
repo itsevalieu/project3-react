@@ -37,7 +37,7 @@ app.use(express.static(path.join(__dirname,"public")));
 // MongoDB Configuration
 // -------------------------------------------------
 mongoose.Promise = global.Promise;
-var mongoURL = process.env.MONGO || "mongodb://localhost/codespiration"
+var mongoURL = process.env.MONGO || "mongodb://localhost/codespiration";
 mongoose.connect(mongoURL);
 var db = mongoose.connection;
 
@@ -51,9 +51,9 @@ db.once("open", function() {
 
 // Express Session
 app.use(session({
-  secret: 'secret',
-  saveUninitialized: true,
-  resave: true
+    secret: 'secret',
+    saveUninitialized: true,
+    resave: true
 }));
 
 // Passport Initialization
@@ -66,9 +66,9 @@ app.use(passport.session());
 // Express Validator
 app.use(expressValidator({
   errorFormatter: function(param, msg, value) {
-    var namespace = param.split('.')
-    , root    = namespace.shift()
-    , formParam = root;
+      var namespace = param.split('.')
+      , root    = namespace.shift()
+      , formParam = root;
 
     while(namespace.length) {
       formParam += '[' + namespace.shift() + ']';
