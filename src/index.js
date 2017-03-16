@@ -8,6 +8,7 @@ import Home from './containers/Home';
 import About from './containers/About';
 import Dashboard from './containers/Dashboard';
 import FAQ from './containers/FAQ';
+import Chatroom from './containers/Chatroom';
 import PageNotFound from './containers/PageNotFound';
 
 const appEntry = <Router history={browserHistory}>
@@ -15,6 +16,7 @@ const appEntry = <Router history={browserHistory}>
 			<IndexRoute component={Home}/>
 			<Route path='/about' component={About}/>
 			<Route path='/dashboard' component={Dashboard}/>
+			<Route path='/chatroom' component={Chatroom}/>
 			<Route path='/faq' component={FAQ}/>
 			<Route path='/*' component={PageNotFound}/>
 		</Route>
