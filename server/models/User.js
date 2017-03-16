@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 
 //Todo: 
-var UserSchema = new Schema({
+var UserSchema = new Schema(/*{
 	
 	firstName: { 
 		type: Schema.Types.String,
@@ -53,8 +53,14 @@ var UserSchema = new Schema({
 }, {
 	timestamps: {createdAt: "createdAt", updatedAt: "updatedAt"},
 	toJSON: {getters: true} //both path and virtual getters
-}
-);
+},*/{
+	facebook: {
+		id: String,
+		token: String,
+		email: String,
+		name: String
+	}	
+});
 
 var User = mongoose.model("User", UserSchema);
 

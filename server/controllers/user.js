@@ -4,8 +4,10 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
 
-var User = require("../models/User")
+var User = require("../models/User");
+var configAuth = require('../../config/auth');
 
 // Get Register
 router.get('/register', function(req, res){
@@ -102,7 +104,7 @@ router.post('/login',
 	passport.authenticate('local', {successRedirect:'/', failureRedirect:'/users/login',failureFlash: true}),
   	function(req, res) {
   		console.log("POST to /users/login");
-    	res.redirect('/dashboard');
+    	res.redirect('/');
 });
 
 router.get('/logout', function(req, res){
@@ -114,5 +116,47 @@ router.get('/logout', function(req, res){
 
 	res.redirect('/users/login');
 });
+
+// route for facebook authentication and login
+router.get('/auth/facebook', passport.authenticate('facebook', { scope : ['email'] }));
+
+// handle the callback after facebook has authenticated the user
+router.get('/auth/facebook/callback', passport.authenticate('facebook', {
+    successRedirect : '/facebooksuccess.html',
+    failureRedirect : '/users/login'
+}));
+
+passport.use(new FacebookStrategy({
+    	clientID: configAuth.facebookAuth.clientID,
+    	clientSecret: configAuth.facebookAuth.clientSecret,
+    	callbackURL: configAuth.facebookAuth.callbackURL,
+    	'profileFields' : ["emails", "displayName", "name"]
+	},
+  	function(accessToken, refreshToken, profile, done) {
+    	process.nextTick(function(){
+    		User.findOne({ 'facebook.id' : profile.id }, function(err, user) {
+    			if(err)
+    				return done(err);
+    			if(user)
+    				return done(null, user);
+    			else {
+    				var newUser = new User();
+    				newUser.facebook.id = profile.id;
+    				newUser.facebook.token = accessToken;
+    				newUser.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName;
+    				newUser.facebook.email = profile.emails[0].value;  
+
+    				newUser.save(function(err) {
+                        if (err)
+                            throw err;
+
+                        // if successful, return the new user
+                        return done(null, newUser);
+                    });
+    			}
+    		});
+    	});
+	}
+));
 
 module.exports = router;
