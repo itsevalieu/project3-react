@@ -102,7 +102,7 @@ router.post('/login',
 	passport.authenticate('local', {successRedirect:'/', failureRedirect:'/users/login',failureFlash: true}),
   	function(req, res) {
   		console.log("POST to /users/login");
-    	res.redirect('/');
+    	res.redirect('/dashboard');
 });
 
 router.get('/logout', function(req, res){

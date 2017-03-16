@@ -104,6 +104,7 @@ var userRoutes = require("./server/controllers/user-api-routes.js");
 
 app.use('/', routes);
 app.use('/users', users);
+
 app.use("/idea", ideaRoutes);
 app.use("/project", projectRoutes);
 app.use("/tech", techRoutes);

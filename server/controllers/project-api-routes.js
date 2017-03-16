@@ -33,6 +33,7 @@ router.post('/api', function(req, res) {
 
 //Test: Update project and show in api
 router.put('/api/:id', function(req, res) {
+	console.log("Call put.");
 	Project.findOneAndUpdate({
 		_id: req.params.id
 	},
@@ -41,14 +42,15 @@ router.put('/api/:id', function(req, res) {
 			completed: req.body.completed,
 			currentProject: req.body.currentProject,
 			githubSource: req.body.githubSource
-		},
-		$push: {
-			"leader": req.body._id,
-			"team": req.body._id,
-			"techStack": req.body._id,
-			"parentIdea": req.body_id
-		}
-	}, {upsert: true})
+		}//,
+		// $push: {
+		// 	"leader": req.body._id,
+		// 	"team": req.body._id,
+		// 	"techStack": req.body._id,
+		// 	"parentIdea": req.body_id
+		// }
+	// }, {upsert: true})
+})
 	.exec()
 	.then(function(project) {
 		console.log("Updated project.");
