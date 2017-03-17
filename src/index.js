@@ -11,6 +11,17 @@ import FAQ from './containers/FAQ';
 import Chatroom from './containers/Chatroom';
 import PageNotFound from './containers/PageNotFound';
 
+function toggleModal() {
+		let modalTrigger = document.querySelectorAll('.modal-trigger');
+		//console.log(modalTrigger);
+
+		for (var i = modalTrigger.length - 1; i >= 0; i--) {
+			modalTrigger[i].onclick = function(){
+				console.log('modal clicked - trigger modal opening');
+			};
+		}
+}
+
 const appEntry = <Router history={browserHistory}>
 <Route path='/' component={App}>
 			<IndexRoute component={Home}/>
@@ -25,3 +36,5 @@ ReactDOM.render(
   appEntry,
   document.querySelector('#root')
 );
+
+toggleModal();
