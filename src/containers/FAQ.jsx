@@ -1,6 +1,6 @@
-import React, { Components } from 'react';
+import React, { Component } from 'react';
 
-class FAQ extends Compnents {
+class FAQ extends Component {
 	render() {
 		return(
 			<div className="faqContainer">
