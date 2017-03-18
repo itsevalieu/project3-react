@@ -1,18 +1,18 @@
-import React, { PropTypes, Component } from 'react';
-import Header from '../components/Header';
-import dashboard from '../components/dashboard';
-import Footer from '../components/Footer';
-
+import React, { Component } from 'react';
+import NotificationWindow from '../components/notificationWindow.jsx';
+import TechWindow from '../components/techWindow.jsx';
 
 class Dashboard extends Component {
   render() {
     return(
       <div className="dashboard">
-	      <Header />
-	      <Footer />
+		     HELLO FROM DASHBOARD
+		     <div className='col m6'>
+		     	<NotificationWindow />
+		     	<TechWindow />
+		     </div>
       </div>
       );
   }
 }
- 
 export default Dashboard;

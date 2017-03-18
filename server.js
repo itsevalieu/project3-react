@@ -22,6 +22,10 @@ var controllers = require ('./server/controllers');
 var app = express();
 var PORT = process.env.PORT || 3000;
 
+//connection to socket.io chat server
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
 // Set Up Express App to Handle Data Parsing
 // -------------------------------------------------
 app.use(bodyParser.json());
@@ -116,6 +120,18 @@ app.get("*", express.static(path.join(__dirname, './public/index.html')));
 
 // Listener
 // -------------------------------------------------
+io.on('connection', function(socket){
+  console.log('A user has connected to chat');
+
+  socket.on('disconnect', function(){
+    console.log('A user has disconnected from chat');
+  });
+});
+
 app.listen(PORT, function() {
   console.log("App listening on PORT: " + PORT);
+});
+
+http.listen(4000, function(){
+  console.log("chat system listening on PORT: 4000");
 });

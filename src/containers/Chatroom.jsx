@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import io from 'socket-io';
+//var io = require('socket.io')();
 
 class Chatroom extends Component{
 	render(){

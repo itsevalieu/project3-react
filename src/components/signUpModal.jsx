@@ -1,39 +1,38 @@
-// Sign Up Modal Component - signUpModal.jsx
-import React, { Component } from "react";
-//import "./modal.css";
+import React from 'react';
 
-class signUpModal extends Component {
-	render() {
-		return(
-			<div id="signUpModal" className="modal">
-			    <div className="modal-content">
-			        <h4>Sign Up</h4>
-			        <form className="col s12">
-			            <div className="row">
-			                <div className="input-field col s6">
-			                    <input id="name" type="text" className="validate"></input>
-			                    <label for="name">Name</label>
-			                </div>
-			                <div className="input-field col s6">
-			                    <input id="email" type="email" className="validate"></input>
-			                    <label for="email">Email</label>
-			                </div>
-			            </div>
-			            <div className="row">
-			                <div className="input-field col s6">
-			                    <input id="username" type="text" className="validate"></input>
-			                    <label for="username">User Name</label>
-			                </div>
-			                <div className="input-field col s6">
-			                    <input id="password" type="text" className="validate"></input>
-			                    <label for="password">Password</label>
-			                </div>
-			            </div>
-			            <div className="chips chips-initial"></div>
-			        </form>
-			    </div>
-			</div>
+const SignUpModal = () => {
+	console.log('sign up');
+	return (
+		<div id='signUpModal' className='modal'>
+			<h4>Sign Up</h4>
+			<form className='col s12'>
+				<div className='row'>
+					<div className='input-field col s6'>
+						<input id='name' type='text' className='validate' />
+						<label htmlFor='name'>Name</label>
+					</div>
+					<div className='input-field col s6'>
+						<input id='email' type='email' className='validate' />
+						<label htmlFor='email'>Email</label>
+					</div>
+				</div>
+				<div className='row'>
+					<div className='input-field col s6'>
+						<input id='userName' type='text' className='validate' />
+						<label htmlFor='userName'>User Name</label>
+					</div>
+					<div className='input-field col s6'>
+						<input id='password' type='text' className='validate' />
+						<label htmlFor='password'>Password</label>
+					</div>
+				</div>
+				<div className='chips chips-initial'/>
+				 <div className="modal-footer"> 
+				 	<a href="#!" className="modal-action modal-close waves-effect waves-green btn red">Submit</a> 
+				 	<a className="modal-action modal-close waves-effect waves-green btn-flat" href="#signInModal">Already have an Account? Click Here to Sign-in!</a> 
+				 </div>
+			</form>
+		</div>
 		);
-	}
 }
-export default signUpModal;
+export default SignUpModal;

@@ -5,7 +5,7 @@ import React, { Component } from "react";
 class Footer extends Component{
 	render(){
 		return(
-			<footer className="page-footer grey darken-1">
+			<footer id="footer" className="page-footer grey darken-1">
 				<div className="container">
 					<div className="row">
 						<div className="col s12">

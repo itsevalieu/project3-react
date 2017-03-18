@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import SignInModal from './signInModal.jsx';
+import SignUpModal from './signUpModal.jsx';
 
 class Header extends Component {
 	render() {
-		return(
-			<header>
+		return (
+			<header id="header">
 			<nav className="black" role="navigation">
 			<div className="nav-wrapper container">
 			<a id="logo-container" href="/" className="brand-logo"><span>CODE</span><span>SPIRATION</span></a>
@@ -25,6 +27,8 @@ class Header extends Component {
 			<a href="#" data-activates="nav-mobile" className="button-collapse"><i className="material-icons">MENU</i></a>
 			</div>
 			</nav>
+			<SignUpModal />
+			<SignInModal/>
 			</header>			
 			);
 	}

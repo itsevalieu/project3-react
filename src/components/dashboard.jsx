@@ -1,5 +1,6 @@
 // Main Dashboard - dashboard.jsx
 import React, { Component } from "react";
+import DashRightColumn from './DashRightColumn.jsx';
 //import "./dashboard.css";
 
 class dashboard extends Component{
@@ -7,6 +8,7 @@ class dashboard extends Component{
 		return(
 			<div>
 			TEST-DASHBOARD
+			<DashRightColumn />
 			</div>
 			);
 	}

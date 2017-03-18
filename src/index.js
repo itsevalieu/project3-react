@@ -32,9 +32,8 @@ const appEntry = <Router history={browserHistory}>
 			<Route path='/*' component={PageNotFound}/>
 		</Route>
 </Router>
+
 ReactDOM.render(
   appEntry,
   document.querySelector('#root')
 );
-
-toggleModal();
