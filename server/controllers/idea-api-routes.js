@@ -6,13 +6,11 @@ var router = express.Router();
 //Test: Get all ideas and show in api
 router.get("/get", function(req, res) {
 	Idea.find({})
-	.populate({
-		path: "author techStack projects",
+	.populate("author techStack projects"
 //eg:	match: { age: { $gte: 21 }},
 //		select: "username"
 //eg:	options: { limit: 5 }
-	})
-	.populate("techStack")
+	)
 	.exec()
 	.then(function(idea) {
 		console.log("Find all ideas.");
@@ -23,14 +21,16 @@ router.get("/get", function(req, res) {
 });
 
 //Test: Post new idea to api
-router.post('/post', function(req, res) {
+router.post("/post", function(req, res) {
+	console.log("posting");
+	console.log(req.body);
 	Idea.create({
 		name: req.body.name,
 		description: req.body.description,
 		rating: req.body.rating,
 		githubExample: req.body.githubExample,
 		timeFrame: req.body.timeFrame,
-		author: req.user._id, //need to check if correct
+		author: req.body.author //need to check if correct
 	})
 	.then(function(idea) {
 		console.log("Created new idea.");
