@@ -4,8 +4,9 @@ var Project = require("../models/Project");
 var router = express.Router();
 
 //Test: Get all projects and show in api
-router.get('/api', function(req, res) {
+router.get('/get', function(req, res) {
 	Project.find({})
+	.populate("leader team techStack parentIdea")
 	.exec()
 	.then(function(project) {
 		console.log("Find all projects.");
@@ -16,7 +17,7 @@ router.get('/api', function(req, res) {
 });
 
 //Test: Post new project to api
-router.post('/api', function(req, res) {
+router.post('/post', function(req, res) {
 	Project.create({
 		name: req.body.name,
 		completed: req.body.completed,
@@ -32,7 +33,7 @@ router.post('/api', function(req, res) {
 });
 
 //Test: Update project and show in api
-router.put('/api/:id', function(req, res) {
+router.put('/put/:id', function(req, res) {
 	console.log("Call put.");
 	Project.findOneAndUpdate({
 		_id: req.params.id
@@ -61,7 +62,7 @@ router.put('/api/:id', function(req, res) {
 });
 
 //Test: Delete project and show in api
-router.delete('/api/:id', function(req, res) {
+router.delete('/delete/:id', function(req, res) {
 	Project.findOneAndRemove({
 		_id: req.params.id
 	})

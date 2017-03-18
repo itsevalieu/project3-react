@@ -21,10 +21,10 @@ var IdeaSchema = new Schema({
 		type: Schema.Types.Number,
 		required: [true, "Enter estimated time of completion for the idea."]
 	},
-	author: {
+	author: [{
 		type: Schema.Types.ObjectId,
 		ref: "User"
-	},
+	}],
 	techStack: [{
 		type: Schema.Types.ObjectId,
 		ref: "Tech"

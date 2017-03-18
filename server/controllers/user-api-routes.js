@@ -4,8 +4,9 @@ var User = require("../models/User");
 var router = express.Router();
 
 //Test: Get all users and show in api
-router.get('/api', function(req, res) {
+router.get('/get', function(req, res) {
 	User.find({})
+	.populate("knownTech learnTech submittedIdeas projects")
 	.exec()
 	.then(function(user) {
 		console.log("Find all users.");
@@ -16,7 +17,7 @@ router.get('/api', function(req, res) {
 });
 
 //Test: Post new user to api
-router.post('/api', function(req, res) {
+router.post('/post', function(req, res) {
 	User.create({
 		firstName: req.body.firstName,
 		lastName: req.body.lastName,
@@ -34,7 +35,7 @@ router.post('/api', function(req, res) {
 });
 
 //Test: Update user and show in api
-router.put('/api/:id', function(req, res) {
+router.put('/put/:id', function(req, res) {
 	User.findOneAndUpdate({
 		_id: req.params.id
 	},
@@ -63,7 +64,7 @@ router.put('/api/:id', function(req, res) {
 });
 
 //Test: Delete user and show in api
-router.delete('/api/:id', function(req, res) {
+router.delete('/delete/:id', function(req, res) {
 	User.findOneAndRemove({
 		_id: req.params.id
 	})
