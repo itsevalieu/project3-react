@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GeneratorModal from './ideaGeneratorModal.jsx';
+import GeneratorModal from '../components/ideaGeneratorModal.jsx';
 	
 console.log('generator');
 
