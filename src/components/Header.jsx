@@ -6,12 +6,12 @@ class Header extends Component {
 			<header>
 			<nav className="black" role="navigation">
 			<div className="nav-wrapper container">
-			<a id="logo-container" href="#" className="brand-logo"><span>CODE</span><span>SPIRATION</span></a>
+			<a id="logo-container" href="/" className="brand-logo"><span>CODE</span><span>SPIRATION</span></a>
 			<ul className="right hide-on-med-and-down">
-			<li><button data-target="signUpModal" className="btn grey" id="modal-trigger">Sign-Up</button></li>
+			<li><button data-target="signUpModal" className="btn grey modal-trigger" id="signUp-modal-trigger">Sign-Up</button></li>
 			</ul>
 			<ul className="right hide-on-med-and-down">
-			<li><button data-target="signInModal" className="btn black" id="modal-trigger">Sign-In</button></li>
+			<li><button data-target="signInModal" className="btn black modal-trigger" id="signIn-modal-trigger">Sign-In</button></li>
 			</ul>
 			<ul className="right hide-on-med-and-down">
 			<li><a href="/about">About</a></li>
