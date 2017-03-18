@@ -1,6 +1,6 @@
 import React from 'react';
 
-let GeneratorModal = () => {
+let GeneratorIdeaModal = () => {
 	return(
 		<div id='generatorModal' className='modal'>
 			<div className='modal-content'>
@@ -23,4 +23,4 @@ let GeneratorModal = () => {
 		);
 }
 
-export default GeneratorModal;
+export default GeneratorIdeaModal;

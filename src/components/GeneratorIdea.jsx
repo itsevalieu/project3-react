@@ -1,4 +1,5 @@
 import React from 'react';
+import GeneratorIdeaModal from './GeneratorIdeaModal.jsx';
 
 let GeneratorIdea = () => {
 	console.log('Generator Idea');

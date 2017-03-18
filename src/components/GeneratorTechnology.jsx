@@ -1,4 +1,5 @@
 import React from 'react';
+//import GeneratorTechModal from './generatorTechModal.jsx';
 
 const GeneratorTechnology = () => {
 	console.log('Generator Technology');
@@ -10,6 +11,7 @@ const GeneratorTechnology = () => {
 			<a href='#techGeneratorModal' type='submit' name='action' className='btn-large waves-effect waves-light red'>
 				Teach Me Tech
 			</a>
+		{/*<GeneratorTechnologyModal />*/}
 		</div>
 	);
 }

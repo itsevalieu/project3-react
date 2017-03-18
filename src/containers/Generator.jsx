@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import GeneratorIdea from '../components/GeneratorIdea.jsx';
 import GeneratorTechnology from '../components/GeneratorTechnology.jsx';
-import GeneratorModal from '../components/ideaGeneratorModal.jsx';
 	
 console.log('generator');
 
@@ -23,7 +22,6 @@ class Generator extends Component {
 						</div>
 					</div>
 				</div>
-				<GeneratorModal />
 			</main>
 		);
 	}
