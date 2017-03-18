@@ -4,8 +4,9 @@ var Tech = require("../models/Tech");
 var router = express.Router();
 
 //Test: Get all techs and show in api
-router.get('/api', function(req, res) {
+router.get('/get', function(req, res) {
 	Tech.find({})
+	.populate("users ideas projects")
 	.exec()
 	.then(function(tech) {
 		console.log("Find all techs.");
@@ -16,7 +17,7 @@ router.get('/api', function(req, res) {
 });
 
 //Test: Post new tech to api
-router.post('/api', function(req, res) {
+router.post('/post', function(req, res) {
  	Tech.create({
 		name: req.body.name,
 		techType: req.body.techType,
@@ -33,7 +34,7 @@ router.post('/api', function(req, res) {
 });
 
 //Test: Update tech and show in api
-router.patch('/api/:id', function(req, res) {
+router.patch('/put/:id', function(req, res) {
  	Tech.update({
 		_id: req.params.id
 	},
@@ -62,7 +63,7 @@ router.patch('/api/:id', function(req, res) {
 });
 
 //Test: Delete tech and show in api
-router.delete('/api/:id', function(req, res) {
+router.delete('/delete/:id', function(req, res) {
 	Tech.findOneAndRemove({
 		_id: req.params.id
 	})

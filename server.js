@@ -116,7 +116,6 @@ app.use('/', routes);
 
 app.use('/users', users);
 
-
 //app.use("/user/:id/", dashboardRoutes);
 app.use("/idea", ideaRoutes);
 app.use("/project", projectRoutes);
