@@ -53,7 +53,7 @@ router.put("/put/:id", function(req, res) {
 			ideas: req.body.ideas,
 			projects: req.body.projects
 		}
-	}, {upsert: true})
+	}, {new: true, upsert: true})
 	.exec()
 	.then(function(tech) {
 		console.log("Updated tech.");

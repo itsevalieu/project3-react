@@ -53,7 +53,7 @@ router.put("/put/:id", function(req, res) {
 			submittedIdeas: req.body.submittedIdeas,
 			projects: req.body.projects
 		}
-	}, {upsert: true})
+	}, {new: true, upsert: true})
 	.exec()
 	.then(function(user) {
 		console.log("Updated user.");

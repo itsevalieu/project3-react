@@ -59,7 +59,7 @@ router.put("/put/:id", function(req, res) {
 			techStack: req.body.techStack,
 			projects: req.body.projects
 		}
-	}, {upsert: true})
+	}, {new: true, upsert: true})
 	.exec()
 	.then(function(idea) {
 		console.log("Updated idea.");
