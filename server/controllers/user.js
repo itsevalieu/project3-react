@@ -5,6 +5,7 @@ var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
+var TwitterStrategy  = require('passport-twitter').Strategy;
 
 var User = require("../models/User");
 var configAuth = require('../../config/auth');
@@ -140,22 +141,100 @@ passport.use(new FacebookStrategy({
     			if(user)
     				return done(null, user);
     			else {
+    				/*
     				var newUser = new User();
     				newUser.facebook.id = profile.id;
     				newUser.facebook.token = accessToken;
     				newUser.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName;
     				newUser.facebook.email = profile.emails[0].value;  
+					*/
+					
+					var newUser = new User({
+						firstName: profile.name.givenName,
+						lastName: profile.name.familyName,
+						username: profile.name.givenName + profile.name.familyName,
+						password: "password",
+						email: profile.emails[0].value,
+						facebookId: profile.id,
+						facebookToken: accessToken
+					});
 
     				newUser.save(function(err) {
                         if (err)
                             throw err;
 
                         // if successful, return the new user
+                        console.log(newUser._id);
                         return done(null, newUser);
-                    });
+                    });	
     			}
     		});
     	});
+	}
+));
+
+router.get('/auth/twitter', passport.authenticate('twitter'));
+
+// handle the callback after twitter has authenticated the user
+router.get('/auth/twitter/callback', passport.authenticate('twitter', {
+            successRedirect : '/twittersuccess.html',
+            failureRedirect : '/users/login'
+}));
+
+passport.use(new TwitterStrategy({
+
+        consumerKey     : configAuth.twitterAuth.consumerKey,
+        consumerSecret  : configAuth.twitterAuth.consumerSecret,
+        callbackURL     : configAuth.twitterAuth.callbackURL
+
+    },
+    function(token, tokenSecret, profile, done) {
+
+        // make the code asynchronous
+    // User.findOne won't fire until we have all our data back from Twitter
+        process.nextTick(function() {
+r
+            User.findOne({ 'twitter.id' : profile.id }, function(err, user) {
+
+                // if there is an error, stop everything and return that
+                // ie an error connecting to the database
+                if (err)
+                    return done(err);
+
+                // if the user is found then log them in
+                if (user) {
+                    return done(null, user); // user found, return that user
+                } else {
+                    // if there is no user, create them
+                    var newUser                 = new User();
+
+                    /*
+                    // set all of the user data that we need
+                    newUser.twitter.id          = profile.id;
+                    newUser.twitter.token       = token;
+                    newUser.twitter.username    = profile.username;
+                    newUser.twitter.displayName = profile.displayName;
+                    */
+
+                    var newUser = new User({
+						          firstName: profile.displayName,
+						          lastName: profile.displayName,
+						          username: profile.username,
+						          password: "password",
+						          email: "email@email.com",
+						          TwitterId: profile.id,
+						          TwitterToken: token
+					          });
+
+                    // save our user into the database
+                    newUser.save(function(err) {
+                        if (err)
+                            throw err;
+                        return done(null, newUser);
+                    });
+                }
+            });
+		});
 	}
 ));
 
