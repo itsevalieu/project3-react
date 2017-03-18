@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 
 //Todo: 
-var UserSchema = new Schema(/*{
+var UserSchema = new Schema({
 	
 	firstName: { 
 		type: Schema.Types.String,
@@ -28,6 +28,22 @@ var UserSchema = new Schema(/*{
 		type: Schema.Types.String,
 		required: [true, "Please enter your first name."],
 		unique: [true, "Email already used."]
+	},
+	facebookId: {
+		type: Schema.Types.String,
+		required: [false, "Facebook ID"],
+	},
+	facebookToken: {
+		type: Schema.Types.String,	
+		required: [false, "Facebook Token"],
+	},
+	twitterId: {
+		type: Schema.Types.String,
+		required: [false, "Facebook ID"],
+	},
+	twitterToken: {
+		type: Schema.Types.String,	
+		required: [false, "Facebook Token"],
 	},
 	github: {
 		type: Schema.Types.String,	
@@ -53,14 +69,14 @@ var UserSchema = new Schema(/*{
 }, {
 	timestamps: {createdAt: "createdAt", updatedAt: "updatedAt"},
 	toJSON: {getters: true} //both path and virtual getters
-},*/{
+} /*{
 	facebook: {
 		id: String,
 		token: String,
 		email: String,
 		name: String
-	}	
-});
+	}*/	
+);
 
 var User = mongoose.model("User", UserSchema);
 
