@@ -30,7 +30,9 @@ router.post("/post", function(req, res) {
 		rating: req.body.rating,
 		githubExample: req.body.githubExample,
 		timeFrame: req.body.timeFrame,
-		author: req.body.author //need to check if correct
+		author: req.body.author,
+		techStack: req.body.tech,
+		projects: req.body.project
 	})
 	.then(function(idea) {
 		console.log("Created new idea.");
@@ -39,60 +41,11 @@ router.post("/post", function(req, res) {
 		res.send(err);
 	});
 });
-//===============
-
-// // New note creation via POST route
-// app.post("/submit", function(req, res) {
-//   // Use our Note model to make a new note from the req.body
-//   var newNote = new Note(req.body);
-//   // Save the new note to mongoose
-//   newNote.save(function(error, doc) {
-//     // Send any errors to the browser
-//     if (error) {
-//       res.send(error);
-//     }
-//     // Otherwise
-//     else {
-//       // Find our user and push the new note id into the User's notes array
-//       User.findOneAndUpdate({}, { $push: { "notes": doc._id } }, { new: true }, function(err, newdoc) {
-//         // Send any errors to the browser
-//         if (err) {
-//           res.send(err);
-//         }
-//         // Or send the newdoc to the browser
-//         else {
-//           res.send(newdoc);
-//         }
-//       });
-//     }
-//   });
-// });
-
-// // Route to see what user looks like WITH populating
-// app.get("/populateduser", function(req, res) {
-//   // Prepare a query to find all users..
-//   User.find({})
-//     // ..and on top of that, populate the notes (replace the objectIds in the notes array with bona-fide notes)
-//     .populate("notes")
-//     // Now, execute the query
-//     .exec(function(error, doc) {
-//       // Send any errors to the browser
-//       if (error) {
-//         res.send(error);
-//       }
-//       // Or send the doc to the browser
-//       else {
-//         res.send(doc);
-//       }
-//     });
-// });
-
-//==============
-
 
 //Test: Update idea and show in api
-router.put('/put/:id', function(req, res) {
-	Idea.findOneAndUpdate({
+router.patch('/put/:id', function(req, res) {
+	console.log(req.body);
+	Idea.update({
 		_id: req.params.id
 	},
 	{	$set: { 
@@ -100,14 +53,14 @@ router.put('/put/:id', function(req, res) {
 			description: req.body.description,
 			rating: req.body.rating,
 			githubExample: req.body.githubExample,
-			timeFrame: req.body.timeFrame
+			timeFrame: req.body.timeFrame,
+			author: req.body.author
 		},
 		$push: { 
-			"author": req.body.author,
-			"techStack": req.body._id,
-			"projects": req.body._id
+			techStack: req.body.techStack,
+			projects: req.body.projects
 		}
-	}, {upsert: true})
+	}, {new: true, upsert: true})
 	.exec()
 	.then(function(idea) {
 		console.log("Updated idea.");
