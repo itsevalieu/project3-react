@@ -97,6 +97,45 @@ router.patch("/patch/:id", function(req, res) {
 	});
 });
 
+//Patch for techStack
+router.patch("/patch/techStack/:id", function(req, res) {
+	//console.log(req.body);
+	Idea.update({
+		_id: req.params.id
+	},
+	{	
+		$push: { 
+			techStack: req.body.techStack
+		}
+	}, {new: true, upsert: true})
+	.exec()
+	.then(function(idea) {
+		console.log("Patched idea by adding new techStack.");
+		res.json(idea);
+	}).catch(function(err) {
+		res.send(err);
+	});
+});
+//Patch for projects
+router.patch("/patch/projects/:id", function(req, res) {
+	//console.log(req.body);
+	Idea.update({
+		_id: req.params.id
+	},
+	{	
+		$push: { 
+			projects: req.body.projects
+		}
+	}, {new: true, upsert: true})
+	.exec()
+	.then(function(idea) {
+		console.log("Patched idea by adding new project.");
+		res.json(idea);
+	}).catch(function(err) {
+		res.send(err);
+	});
+});
+
 //Test: Delete idea and show in api
 router.delete("/delete/:id", function(req, res) {
 	Idea.findOneAndRemove({

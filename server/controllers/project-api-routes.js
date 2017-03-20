@@ -54,7 +54,7 @@ router.put("/put/:id", function(req, res) {
 			team: req.body.team,
 			techStack: req.body.techStack,
 		}
-	}, {upsert: true})
+	}, {new: true, upsert: true})
 	.exec()
 	.then(function(project) {
 		console.log("Updated project.");
@@ -86,6 +86,65 @@ router.patch("/patch/:id", function(req, res) {
 	.exec()
 	.then(function(project) {
 		console.log("Updated/patched project.");
+		res.json(project);
+	}).catch(function(err) {
+		res.send(err);
+	});
+});
+
+//Patch for leader
+router.patch("/patch/leader/:id", function(req, res) {
+	console.log("Call patch.");
+	Project.update({
+		_id: req.params.id
+	},
+	{ 	
+		$set: { 
+			leader: req.body.leader
+		}
+	}, {new: true, upsert: true})
+	.exec()
+	.then(function(project) {
+		console.log("Patched project by changing leader.");
+		res.json(project);
+	}).catch(function(err) {
+		res.send(err);
+	});
+});
+//Patch for team
+router.patch("/patch/team/:id", function(req, res) {
+	console.log("Call patch.");
+	Project.update({
+		_id: req.params.id
+	},
+	{ 	
+		$push: {
+			team: req.body.team
+		}
+	}, {new: true, upsert: true})
+	.exec()
+	.then(function(project) {
+		console.log("Patched project by adding new team member.");
+		res.json(project);
+	}).catch(function(err) {
+		res.send(err);
+	});
+});
+
+//Patch for techStack
+router.patch("/patch/techStack/:id", function(req, res) {
+	console.log("Call patch.");
+	Project.update({
+		_id: req.params.id
+	},
+	{ 	
+		$push: {
+			techStack: req.body.techStack
+		}
+	}, {new: true, upsert: true})
+	.exec()
+	.then(function(project) {
+		console.log("Patched project by adding new techStack.");
 		res.json(project);
 	}).catch(function(err) {
 		res.send(err);

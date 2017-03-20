@@ -90,6 +90,82 @@ router.patch("/patch/:id", function(req, res) {
 	});
 });
 
+//Patch documentation
+router.patch("/patch/documentation/:id", function(req, res) {
+ 	Tech.update({
+		_id: req.params.id
+	},
+	{	
+		$push: { 
+			documentation: req.body.documentation
+		}
+	}, {new: true, upsert: true})
+	.exec()
+	.then(function(tech) {
+		console.log("Patched tech by adding documentation.");
+		res.json(tech);
+	}).catch(function(err) {
+		res.send(err);
+	});
+});
+
+//Patch users
+router.patch("/patch/users/:id", function(req, res) {
+ 	Tech.update({
+		_id: req.params.id
+	},
+	{	
+		$push: { 
+			users: req.body.users
+		}
+	}, {new: true, upsert: true})
+	.exec()
+	.then(function(tech) {
+		console.log("Patched tech by adding users.");
+		res.json(tech);
+	}).catch(function(err) {
+		res.send(err);
+	});
+});
+
+//Patch ideas
+router.patch("/patch/ideas/:id", function(req, res) {
+ 	Tech.update({
+		_id: req.params.id
+	},
+	{	
+		$push: { 
+			ideas: req.body.ideas
+		}
+	}, {new: true, upsert: true})
+	.exec()
+	.then(function(tech) {
+		console.log("Patched tech by adding ideas.");
+		res.json(tech);
+	}).catch(function(err) {
+		res.send(err);
+	});
+});
+
+//Patch projects
+router.patch("/patch/projects/:id", function(req, res) {
+ 	Tech.update({
+		_id: req.params.id
+	},
+	{	
+		$push: { 
+			projects: req.body.projects
+		}
+	}, {new: true, upsert: true})
+	.exec()
+	.then(function(tech) {
+		console.log("Patched tech by adding project.");
+		res.json(tech);
+	}).catch(function(err) {
+		res.send(err);
+	});
+});
+
 //Test: Delete tech and show in api
 router.delete("/delete/:id", function(req, res) {
 	Tech.findOneAndRemove({

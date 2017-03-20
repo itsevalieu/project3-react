@@ -71,7 +71,6 @@ var UserSchema = new Schema({
 	toJSON: {getters: true}, //both path and virtual getters
 	id: false
 } /*{
->>>>>>> e77830f44e777a55022d0237040b7a1264f90638
 	facebook: {
 		id: String,
 		token: String,

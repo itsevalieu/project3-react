@@ -92,6 +92,82 @@ router.patch("/patch/:id", function(req, res) {
 	});
 });
 
+//Patch knownTech
+router.patch("/patch/knownTech/:id", function(req, res) {
+	User.update({
+		_id: req.params.id
+	},
+	{ 	
+		$push: { 
+			knownTech: req.body.knownTech
+		}
+	}, {new: true, upsert: true})
+	.exec()
+	.then(function(user) {
+		console.log("Patched user by adding knownTech.");
+		res.json(user);
+	}).catch(function(err) {
+		res.send(err);
+	});
+});
+
+//Patch learnTech
+router.patch("/patch/learnTech/:id", function(req, res) {
+	User.update({
+		_id: req.params.id
+	},
+	{ 	
+		$push: { 
+			learnTech: req.body.learnTech
+		}
+	}, {new: true, upsert: true})
+	.exec()
+	.then(function(user) {
+		console.log("Patched user by adding learnTech.");
+		res.json(user);
+	}).catch(function(err) {
+		res.send(err);
+	});
+});
+
+//Patch submittedIdeas
+router.patch("/patch/submittedIdeas/:id", function(req, res) {
+	User.update({
+		_id: req.params.id
+	},
+	{ 	
+		$push: { 
+			submittedIdeas: req.body.submittedIdeas
+		}
+	}, {new: true, upsert: true})
+	.exec()
+	.then(function(user) {
+		console.log("Patched user by adding submittedIdeas.");
+		res.json(user);
+	}).catch(function(err) {
+		res.send(err);
+	});
+});
+
+//Patch projects
+router.patch("/patch/projects/:id", function(req, res) {
+	User.update({
+		_id: req.params.id
+	},
+	{ 	
+		$push: { 
+			projects: req.body.projects
+		}
+	}, {new: true, upsert: true})
+	.exec()
+	.then(function(user) {
+		console.log("Patched user by adding projects.");
+		res.json(user);
+	}).catch(function(err) {
+		res.send(err);
+	});
+});
+
 //Test: Delete user and show in api
 router.delete("/delete/:id", function(req, res) {
 	User.findOneAndRemove({
