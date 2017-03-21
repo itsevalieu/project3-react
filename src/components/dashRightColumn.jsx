@@ -1,5 +1,6 @@
 // Dashboard Right Column - dashRightColumn.jsx
 import React from "react";
+import NotificationWindow from './notificationWindow.jsx';
 import "./dashboard.css";
 
 export default () => {

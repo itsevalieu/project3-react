@@ -4,7 +4,7 @@ var Tech = require("../models/Tech");
 var router = express.Router();
 
 //Test: Get all techs and show in api
-router.get('/get', function(req, res) {
+router.get("/get", function(req, res) {
 	Tech.find({})
 	.populate("users ideas projects")
 	.exec()
@@ -17,13 +17,16 @@ router.get('/get', function(req, res) {
 });
 
 //Test: Post new tech to api
-router.post('/post', function(req, res) {
+router.post("/post", function(req, res) {
  	Tech.create({
 		name: req.body.name,
 		techType: req.body.techType,
 		frontend: req.body.frontend,
 		backend: req.body.backend,
-		documentation: req.body.documentation
+		documentation: req.body.documentation,
+		users: req.body.users,
+		ideas: req.body.ideas,
+		projects: req.body.projects
 	})
 	.then(function(tech) {
 		console.log("Created new tech.");
@@ -34,25 +37,23 @@ router.post('/post', function(req, res) {
 });
 
 //Test: Update tech and show in api
-router.patch('/put/:id', function(req, res) {
- 	Tech.update({
+router.put("/put/:id", function(req, res) {
+	Tech.findOneAndUpdate({
 		_id: req.params.id
 	},
-	{	$set: { 
-			// name: req.body.name,
-			// techType: req.body.techType,
+	{ 	$set: { 
+			name: req.body.name,
+			techType: req.body.techType,
 			frontend: req.body.frontend,
-			backend: req.body.backend
+			backend: req.body.backend,
+		},
+		$push: { 
+			documentation: req.body.documentation,
+			users: req.body.users,
+			ideas: req.body.ideas,
+			projects: req.body.projects
 		}
-		// }, 
-		// $push: { 
-		// 	"documentation": req.body.documentation,
-		// 	"users": req.body._id,
-		// 	"ideas": req.body._id,
-		// 	"projects": req.body._id
-		// }
-	// }, {upsert: true})
-	})
+	}, {new: true, upsert: true})
 	.exec()
 	.then(function(tech) {
 		console.log("Updated tech.");
@@ -62,8 +63,111 @@ router.patch('/put/:id', function(req, res) {
 	});
 });
 
+//Test: Patch and update tech and show in api
+router.patch("/patch/:id", function(req, res) {
+ 	Tech.update({
+		_id: req.params.id
+	},
+	{	$set: { 
+			name: req.body.name,
+			techType: req.body.techType,
+			frontend: req.body.frontend,
+			backend: req.body.backend
+		}, 
+		$push: { 
+			documentation: req.body.documentation,
+			users: req.body.users,
+			ideas: req.body.ideas,
+			projects: req.body.projects
+		}
+	}, {new: true, upsert: true})
+	.exec()
+	.then(function(tech) {
+		console.log("Updated/patched tech.");
+		res.json(tech);
+	}).catch(function(err) {
+		res.send(err);
+	});
+});
+
+//Patch documentation
+router.patch("/patch/documentation/:id", function(req, res) {
+ 	Tech.update({
+		_id: req.params.id
+	},
+	{	
+		$push: { 
+			documentation: req.body.documentation
+		}
+	}, {new: true, upsert: true})
+	.exec()
+	.then(function(tech) {
+		console.log("Patched tech by adding documentation.");
+		res.json(tech);
+	}).catch(function(err) {
+		res.send(err);
+	});
+});
+
+//Patch users
+router.patch("/patch/users/:id", function(req, res) {
+ 	Tech.update({
+		_id: req.params.id
+	},
+	{	
+		$push: { 
+			users: req.body.users
+		}
+	}, {new: true, upsert: true})
+	.exec()
+	.then(function(tech) {
+		console.log("Patched tech by adding users.");
+		res.json(tech);
+	}).catch(function(err) {
+		res.send(err);
+	});
+});
+
+//Patch ideas
+router.patch("/patch/ideas/:id", function(req, res) {
+ 	Tech.update({
+		_id: req.params.id
+	},
+	{	
+		$push: { 
+			ideas: req.body.ideas
+		}
+	}, {new: true, upsert: true})
+	.exec()
+	.then(function(tech) {
+		console.log("Patched tech by adding ideas.");
+		res.json(tech);
+	}).catch(function(err) {
+		res.send(err);
+	});
+});
+
+//Patch projects
+router.patch("/patch/projects/:id", function(req, res) {
+ 	Tech.update({
+		_id: req.params.id
+	},
+	{	
+		$push: { 
+			projects: req.body.projects
+		}
+	}, {new: true, upsert: true})
+	.exec()
+	.then(function(tech) {
+		console.log("Patched tech by adding project.");
+		res.json(tech);
+	}).catch(function(err) {
+		res.send(err);
+	});
+});
+
 //Test: Delete tech and show in api
-router.delete('/delete/:id', function(req, res) {
+router.delete("/delete/:id", function(req, res) {
 	Tech.findOneAndRemove({
 		_id: req.params.id
 	})

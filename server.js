@@ -105,7 +105,6 @@ var ideaRoutes = require("./server/controllers/idea-api-routes.js");
 var projectRoutes = require("./server/controllers/project-api-routes.js");
 var techRoutes = require("./server/controllers/tech-api-routes.js");
 var userRoutes = require("./server/controllers/user-api-routes.js");
-//var dashboardRoutes = require("./server/controllers/dashboard-api-routes.js");
 
 app.use('/', routes);
 // app.use(function(req, res, next()) {

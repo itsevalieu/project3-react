@@ -1,0 +1,11 @@
+import React from 'react';
+
+const GeneratorTechModal = () => {
+	return(
+		<div id='generator-techModal' className='modal'>
+		Here are some technology stuff...
+		</div>
+	);
+}
+
+export default GeneratorTechModal;
