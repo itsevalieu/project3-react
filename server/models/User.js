@@ -16,7 +16,7 @@ var UserSchema = new Schema({
 	},
 	username: {
 		type: Schema.Types.String,
-		required: [true, "Please enter your  name."],
+		required: [true, "Please enter your name."],
 		lowercase: true,
 		unique: [true, "Username taken."]
 	},
@@ -26,7 +26,7 @@ var UserSchema = new Schema({
 	},
 	email: {
 		type: Schema.Types.String,
-		required: [true, "Please enter your first name."],
+		required: [true, "Please enter your email."],
 		unique: [true, "Email already used."]
 	},
 	facebookId: {
@@ -39,11 +39,19 @@ var UserSchema = new Schema({
 	},
 	twitterId: {
 		type: Schema.Types.String,
-		required: [false, "Facebook ID"],
+		required: [false, "Twitter ID"],
 	},
 	twitterToken: {
 		type: Schema.Types.String,	
-		required: [false, "Facebook Token"],
+		required: [false, "Twitter Token"],
+	},
+	githubId: {
+		type: Schema.Types.String,
+		required: [false, "Github ID"],
+	},
+	githubToken: {
+		type: Schema.Types.String,	
+		required: [false, "Github Token"],
 	},
 	github: {
 		type: Schema.Types.String,	
@@ -68,7 +76,8 @@ var UserSchema = new Schema({
 
 }, {
 	timestamps: {createdAt: "createdAt", updatedAt: "updatedAt"},
-	toJSON: {getters: true} //both path and virtual getters
+	toJSON: {getters: true}, //both path and virtual getters
+	id: false
 } /*{
 	facebook: {
 		id: String,
