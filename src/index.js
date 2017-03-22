@@ -10,6 +10,7 @@ import Dashboard from './containers/Dashboard';
 import Generator from './containers/Generator';
 import Chatroom from './containers/Chatroom';
 import FAQ from './containers/FAQ';
+import ForgotLogin from './containers/ForgotLogin';
 import PageNotFound from './containers/PageNotFound';
 
 const appEntry = <Router history={browserHistory}>
@@ -20,6 +21,7 @@ const appEntry = <Router history={browserHistory}>
 			<Route path='/generator' component={Generator}/>
 			<Route path='/chatroom' component={Chatroom}/>
 			<Route path='/faq' component={FAQ}/>
+			<Route path='/forgot-login' component={ForgotLogin}/>
 			<Route path='/*' component={PageNotFound}/>
 		</Route>
 </Router>

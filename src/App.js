@@ -4,6 +4,10 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {loggedIn: false}
+  }
   render() {
     return(
       <div className="home">

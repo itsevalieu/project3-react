@@ -17,7 +17,7 @@ class Home extends Component {
 			</div>
 			<div className="row">&nbsp;</div>
 			<div className="row center"> 
-			<a href="#" type="submit" name="action" className="btn-large waves-effect waves-light red">eenie meenie miney mo!</a> 
+			<a href="/generator" type="submit" name="action" className="btn-large waves-effect waves-light red">eenie meenie miney mo!</a> 
 			</div>
 			<div className="row">&nbsp;</div>
 			</div>
