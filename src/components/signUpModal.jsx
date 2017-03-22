@@ -47,18 +47,11 @@ const SignUpModal = () => {
 				</Col>
 			</Row>
 			<Row>
-				<Col s={3}>
-					Alt Sign Up Methods:
-				</Col>
-				<Col s={2}>
-					Facebook
-				</Col>
-				<Col s={2}>
-					Github
-				</Col>
-				<Col s={2}>
-					Twitter
-				</Col>
+				<Button floating fab='horizontal' icon='mode_edit' className='red altSignIn'>
+					<Button floating icon='' className='black'>GitHub</Button>
+					<Button floating icon='' className='blue'>Facebook</Button>
+					<Button floating icon='' className='blue darken-1'>Twitter</Button>
+				</Button>
 			</Row>
 		</div>
 		);
