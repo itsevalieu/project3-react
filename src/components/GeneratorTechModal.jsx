@@ -1,14 +1,11 @@
 import React from 'react';
 import { Button, Col, Row } from 'react-materialize';
 
-
-let GeneratorIdeaModal = () => {
+const GeneratorTechModal = () => {
 	return(
 		<div>
 			<Row>
-				<Col s={12}>
-					Go forth and program me a To-Do List, written in Javascript / jQuery.
-				</Col>
+				Have you tried using React?  Have you tried using it with jQuery?  Fun huh?
 			</Row>
 			<Row>
 				<Col s={6}>
@@ -25,4 +22,5 @@ let GeneratorIdeaModal = () => {
 		</div>
 		);
 }
-export default GeneratorIdeaModal;
+
+export default GeneratorTechModal;
