@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Button, Input, Icon, Col } from 'react-materialize';
+import { Row, Button, Input, Icon, Col, Dropdown, NavItem } from 'react-materialize';
 
 function submitUserDetails() {
 	console.log('submit sign up details');
@@ -43,15 +43,19 @@ const SignUpModal = () => {
 			</Row>
 			<Row>
 				<Col s={4} offset='s10'>
-					<Button>Submit</Button>
+					<Button className='red'>Submit</Button>
 				</Col>
 			</Row>
 			<Row>
-				<Button floating fab='horizontal' icon='mode_edit' className='red altSignIn'>
-					<Button floating icon='' className='black'>GitHub</Button>
-					<Button floating icon='' className='blue'>Facebook</Button>
-					<Button floating icon='' className='blue darken-1'>Twitter</Button>
-				</Button>
+				<Dropdown className='silver' trigger={
+					<Button className='btn black' waves='light'>Alt. Sign Up Methods</Button>
+				}>
+					<NavItem>Facebook</NavItem>
+					<NavItem divider />
+					<NavItem>GitHub</NavItem>
+					<NavItem divider />
+					<NavItem>Twitter</NavItem>
+				</Dropdown>
 			</Row>
 		</div>
 		);
