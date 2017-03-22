@@ -6,6 +6,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var TwitterStrategy  = require('passport-twitter').Strategy;
+var GitHubStrategy  = require('passport-github2').Strategy;
 
 var User = require("../models/User");
 var configAuth = require('../../config/auth');
@@ -209,6 +210,62 @@ r
                                   email: "email@email.com",
                                   twitterId: profile.id,
                                   twitterToken: token
+                              });
+
+                    // save our user into the database
+                    newUser.save(function(err) {
+                        if (err)
+                            throw err;
+                        return done(null, newUser);
+                    });
+                }
+            });
+        });
+    }
+));
+
+router.get('/auth/github', passport.authenticate('github'));
+
+// handle the callback after twitter has authenticated the user
+router.get('/auth/github/callback', passport.authenticate('github', {
+            successRedirect : '/githubsuccess.html',
+            failureRedirect : '/users/login'
+}));
+
+passport.use(new GitHubStrategy({
+
+        clientID     : configAuth.githubAuth.clientID,
+        clientSecret  : configAuth.githubAuth.clientSecret,
+        callbackURL     : configAuth.githubAuth.callbackURL
+
+    },
+    function(accessToken, refreshToken, profile, done) {
+
+        // make the code asynchronous
+    // User.findOne won't fire until we have all our data back from Twitter
+        process.nextTick(function() {
+
+            User.findOne({ 'githubId.id' : profile.id }, function(err, user) {
+
+                // if there is an error, stop everything and return that
+                // ie an error connecting to the database
+                if (err)
+                    return done(err);
+
+                // if the user is found then log them in
+                if (user) {
+                    return done(null, user); // user found, return that user
+                } else {
+                    // if there is no user, create them
+
+                    var newUser = new User({
+                                  firstName: profile.displayName,
+                                  lastName: profile.displayName,
+                                  username: profile.username,
+                                  password: "password",
+                                  email: profile.emails[0].value,
+                                  githubId: profile.id,
+                                  githubToken: accessToken
                               });
 
                     // save our user into the database
