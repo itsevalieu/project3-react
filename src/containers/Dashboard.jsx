@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-materialize';
-import SideNav from '../components/SideNav';
+import SideNav from '../components/SideNav.jsx';
 import NotificationWindow from '../components/notificationWindow.jsx';
 import TechWindow from '../components/techWindow.jsx';
 
