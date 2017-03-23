@@ -8,7 +8,7 @@ const SignInModal = () => {
 			<div>
 				<Row>
 					<Input placeholder='UserName' s={6} label='User Name' validate><Icon>account_circle</Icon></Input>
-					<Input placeholder='Password' s={6} label='password' type='password' validate><Icon>mode_edit</Icon></Input>
+					<Input id='passwordInput' placeholder='Password' s={6} label='password' type='password' validate><Icon>mode_edit</Icon></Input>
 				</Row>
 				<Row>
 					<Col s={6}><Button className='red btn' waves='light'>Forgot My Login</Button></Col>

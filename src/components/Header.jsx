@@ -12,7 +12,7 @@ class Header extends Component {
 			<a id="logo-container" href="/" className="brand-logo"><span>CODE</span><span>SPIRATION</span></a>
 			<ul className="right hide-on-med-and-down">
 			<li>
-				<Modal header='Test Header' 
+				<Modal header='Create An Account:' 
 				trigger={<Button className='btn grey' waves='light'>Sign Up</Button>}>
 					<SignUpModal />
 				</Modal>
