@@ -105,6 +105,7 @@ var ideaRoutes = require("./server/controllers/idea-api-routes.js");
 var projectRoutes = require("./server/controllers/project-api-routes.js");
 var techRoutes = require("./server/controllers/tech-api-routes.js");
 var userRoutes = require("./server/controllers/user-api-routes.js");
+var mail = require('./server/controllers/mail.js');
 
 app.use('/', routes);
 // app.use(function(req, res, next()) {
@@ -124,6 +125,7 @@ app.use("/idea", ideaRoutes);
 app.use("/project", projectRoutes);
 app.use("/tech", techRoutes);
 app.use("/user", userRoutes);
+app.use("/mail", mail);
 
 // app.use("/", controllers);
 app.use(express.static(path.join(__dirname, 'static')));
