@@ -36,7 +36,7 @@ app.use(cookieParser());
 
 // Static Directory
 // -------------------------------------------------
-app.use(express.static(path.join(__dirname,"public")));
+app.use(express.static(path.join(__dirname,"src")));
 
 // MongoDB Configuration
 // -------------------------------------------------
@@ -126,9 +126,10 @@ app.use("/tech", techRoutes);
 app.use("/user", userRoutes);
 
 // app.use("/", controllers);
-app.use(express.static(path.join(__dirname, 'static')));
-app.get("*", express.static(path.join(__dirname, './public/index.html')));
-
+// app.use(express.static(path.join(__dirname, 'static')));
+app.get("/*", function (req, res) {
+    res.sendFile(path.join(__dirname, './src/index.html'));
+});
 // Listener
 // -------------------------------------------------
 io.on('connection', function(socket){
