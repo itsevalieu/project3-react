@@ -1,0 +1,30 @@
+footer {
+	background-color: $color_hunter_green_approx;
+	color: $white;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 100px;
+	width: 100%;
+}
+
+ul {
+	&#footer {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		.left {
+			padding-top: 30px;
+			text-align: left;
+			float: left;
+			display: block;
+		}
+		.right {
+			padding-top: 30px;
+			float: right;
+			text-align: right;
+			display: block;
+		}
+	}
+}

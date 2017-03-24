@@ -1,0 +1,50 @@
+header {
+	background-color: $color_hunter_green_approx;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+#navLogo {
+	height: 50px;
+	vertical-align: middle;
+	margin: -25px;
+}
+ul {
+	&#navigation {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		li {
+			float: right;
+			a {
+				display: block;
+				color: $white;
+				text-align: center;
+				padding: 25px;
+				text-decoration: none;
+				&.active {
+					background-color: $color_alizarin_crimson_approx;
+				}
+				&:hover:not(.active) {
+					background-color: $color_woodsmoke_approx;
+				}
+			}
+			&.left {
+				float: left;
+			}
+		}
+	}
+}
+@media screen and(max-width: 600px) {
+	#navLogo {
+		height: 35px;
+	}
+	ul#navigation li {
+		float: none;
+		&.left {
+			float: none;
+		}
+	}
+}
