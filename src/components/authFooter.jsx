@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Button } from 'react-materialize';
-import '../../public/assets/sass/codespiration.css';
+import './assets/sass/codespiration.css';
 
 const AuthFooter = () => {
 		return(
