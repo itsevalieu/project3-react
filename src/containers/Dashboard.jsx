@@ -13,10 +13,10 @@ class Dashboard extends Component {
             <SideNav />
           </Col>
           <Col s={8}>
-		     <Row s={12}>
-  		     	<NotificationWindow />
-          </Row>
-          <Row s={12}>
+  		     <Row s={12}>
+    		     	<NotificationWindow />
+            </Row>
+            <Row s={12}>
   		     	<TechWindow />
           </Row>
          </Col>

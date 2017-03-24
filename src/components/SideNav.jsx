@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row } from 'react-materialize';
+import { Icon, Row } from 'react-materialize';
 
 const SideNav = () => {
 	return (
@@ -7,10 +7,10 @@ const SideNav = () => {
 			<Row className='profileData'>
 				<a href='/edit-profile'>
 				<div id='profileImage'>
-					Profile Image
+					<Icon className='large'>perm_identity</Icon>
 				</div>
 				<div id='profileName'>
-					Profile Name
+					Demo Guest
 				</div>
 				</a>
 			</Row>
@@ -21,14 +21,14 @@ const SideNav = () => {
 					</a>
 				</div>
 			</Row>
-			<Row className='sideNavBar'>
+			<Row className='sideNavBar chatroom'>
 				<div>
 					<a href='/chatroom'>
 					CHATROOM
 					</a>
 				</div>
 			</Row>
-			<Row className='sideNavBar'>
+			<Row className='sideNavBar leaderboard'>
 				<div>
 					<a href='/leaderboard'>
 					LEADERBOARD

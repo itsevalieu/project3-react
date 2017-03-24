@@ -1,23 +1,28 @@
 import React from 'react';
+import { Icon, Row, Badge, Collapsible } from 'react-materialize';
 
 let NotificationWindow = () => {
 	console.log('dashboard right column');
 	return(
-		<div id='dash-rightColumn' className='col m6'>
+		<Row id='dash-rightColumn' s={6}>
 			<h4 className='grey-text text-darken-4'><span>Notifications</span></h4>
-			<ul className='collapsible' data-collapsible='accordian'>
+			<Collapsible data-collapsible='accordian'>
 				<li>
 					<div className='collapsible-header'>
-						<span className='new badge red'>4{/* this.props.notificationAlertType */}</span>
-						<i className='material-icons'>filter_drama</i>
-						First {/* this.props.notificationTitle */}
+						<Badge className='silver'>4 Days Left{/* this.props.notificationAlertType */}</Badge>
+						<Icon>whatshot</Icon>
+							First 
+							{/* this.props.notificationTitle */}
 					</div>
 					<div className='collapsible-body'>
-						<p>Loren ipsum dolor sit amet. {/* this.props.notificationText*/} </p>
+						<p>
+							First Project Due Date
+							{/* this.props.notificationText*/} 
+						</p>
 					</div>
 				</li>
-			</ul>
-		</div>
+			</Collapsible>
+		</Row>
 		);
 }
 export default NotificationWindow;
