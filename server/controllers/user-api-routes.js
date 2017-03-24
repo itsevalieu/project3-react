@@ -10,10 +10,20 @@ router.get("/get", function(req, res) {
 	.exec()
 	.then(function(user) {
 		console.log("Find all users.");
+		console.log(user); //can use to count user
 		res.json(user);
 	}).catch(function(err) {
 		res.send(err);
 	});
+});
+router.get("/get/completedProjects", function(req, res) {
+	User.where('projects', {'completed': true}).count(function(err, count) {
+		if (err) {
+			return err;
+		}
+  		console.log('there are %d completed projects', count);
+	});
+
 });
 
 //Test: Post new user to api
@@ -63,7 +73,7 @@ router.put("/put/:id", function(req, res) {
 	});
 });
 
-//Test: Patch and update project and show in api
+//Test: Patch and update user and show in api
 router.patch("/patch/:id", function(req, res) {
 	User.update({
 		_id: req.params.id
