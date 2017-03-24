@@ -17,7 +17,9 @@ class Chatroom extends Component{
 						Send Window
 					</Col>
 					<Col s={2}>
-						<Icon>question_answer</Icon>
+						<Button>
+							<Icon>question_answer</Icon>
+						</Button>
 					</Col>
 				</Row>
 			</div>

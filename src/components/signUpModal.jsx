@@ -1,12 +1,12 @@
 import React from 'react';
-import { Row, Button, Input, Icon, Col, Dropdown, NavItem } from 'react-materialize';
+import { Row, Button, Input, Icon, Col } from 'react-materialize';
 import GitHubMark from '../../public/assets/images/GitHub-Mark-32px.png';
 import FaceBookIcon from '../../public/assets/images/facebook-icon.jpg';
 import TwitterIcon from '../../public/assets/images/twitter-icon.jpg';
-
+/*
 function submitUserDetails() {
 	console.log('submit sign up details');
-	/*
+	
 	const xhr = new XMLHttpRequest();
 	xhr.open('GET', '/api/user');
 	xhr.onload = function() {
@@ -14,9 +14,8 @@ function submitUserDetails() {
 			else{}
 	};
 	xhr.send();
-	*/
 } 
-
+*/
 const SignUpModal = () => {
 	return (
 		<div>
@@ -46,13 +45,13 @@ const SignUpModal = () => {
 			</Row>
 			<Row>
 				<Col s={1}>
-					<img src={GitHubMark}/>
+					<img src={GitHubMark} alt='GitHub Alternative Sign Up Method'/>
 				</Col>
 				<Col s={1}>
-					<img src={FaceBookIcon}/>
+					<img src={FaceBookIcon} alt='Facebook Alternative Sign Up Method'/>
 				</Col>
 				<Col s={1}>
-					<img src={TwitterIcon}/>
+					<img src={TwitterIcon} alt='Twitter Alternative Sign Up Method'/>
 				</Col>
 				<Col s={3} offset='s6'>
 					<Button className='red'>Submit</Button>
