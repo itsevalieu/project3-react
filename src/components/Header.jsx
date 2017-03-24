@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Modal } from 'react-materialize';
 import SignInModal from './signInModal.jsx';
 import SignUpModal from './signUpModal.jsx';
 
@@ -10,10 +11,19 @@ class Header extends Component {
 			<div className="nav-wrapper container">
 			<a id="logo-container" href="/" className="brand-logo"><span>CODE</span><span>SPIRATION</span></a>
 			<ul className="right hide-on-med-and-down">
-			<li><button data-target="signUpModal" className="btn grey modal-trigger" id="signUp-modal-trigger">Sign-Up</button></li>
+			<li>
+				<Modal header='Create An Account:' 
+				trigger={<Button className='btn grey' waves='light'>Sign Up</Button>}>
+					<SignUpModal />
+				</Modal>
+			</li>
 			</ul>
 			<ul className="right hide-on-med-and-down">
-			<li><button data-target="signInModal" className="btn black modal-trigger" id="signIn-modal-trigger">Sign-In</button></li>
+			<li>
+			<Modal header='Sign In:' trigger={<Button className='btn black'>Sign In</Button>} className='' waves='light'>
+				<SignInModal />
+			</Modal>
+			</li>
 			</ul>
 			<ul className="right hide-on-med-and-down">
 			<li><a href="/about">About</a></li>
@@ -27,8 +37,6 @@ class Header extends Component {
 			<a href="#" data-activates="nav-mobile" className="button-collapse"><i className="material-icons">MENU</i></a>
 			</div>
 			</nav>
-			<SignUpModal />
-			<SignInModal/>
 			</header>			
 			);
 	}

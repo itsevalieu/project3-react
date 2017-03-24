@@ -10,18 +10,8 @@ import Dashboard from './containers/Dashboard';
 import Generator from './containers/Generator';
 import Chatroom from './containers/Chatroom';
 import FAQ from './containers/FAQ';
+import ForgotLogin from './containers/ForgotLogin';
 import PageNotFound from './containers/PageNotFound';
-
-function toggleModal() {
-		let modalTrigger = document.querySelectorAll('.modal-trigger');
-		//console.log(modalTrigger);
-
-		for (var i = modalTrigger.length - 1; i >= 0; i--) {
-			modalTrigger[i].onclick = function(){
-				console.log('modal clicked - trigger modal opening');
-			};
-		}
-}
 
 const appEntry = <Router history={browserHistory}>
 <Route path='/' component={App}>
@@ -31,6 +21,7 @@ const appEntry = <Router history={browserHistory}>
 			<Route path='/generator' component={Generator}/>
 			<Route path='/chatroom' component={Chatroom}/>
 			<Route path='/faq' component={FAQ}/>
+			<Route path='/forgot-login' component={ForgotLogin}/>
 			<Route path='/*' component={PageNotFound}/>
 		</Route>
 </Router>

@@ -1,5 +1,7 @@
+@import "../modules/colors";
+
 header {
-	background-color: $color_hunter_green_approx;
+	background-color: $black;
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -25,10 +27,10 @@ ul {
 				padding: 25px;
 				text-decoration: none;
 				&.active {
-					background-color: $color_alizarin_crimson_approx;
+					background-color: $red;
 				}
 				&:hover:not(.active) {
-					background-color: $color_woodsmoke_approx;
+					background-color: #111;
 				}
 			}
 			&.left {

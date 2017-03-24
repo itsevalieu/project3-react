@@ -17,10 +17,10 @@ var ProjectSchema = new Schema({
 	githubSource: {
 		type: Schema.Types.String
 	},
-	leader: {
+	leader: [{
 		type: Schema.Types.ObjectId,
 		ref: "User"
-	},
+	}],
 	team: [{
 		type: Schema.Types.ObjectId,
 		ref: "User"
@@ -29,10 +29,10 @@ var ProjectSchema = new Schema({
 		type: Schema.Types.ObjectId,
 		ref: "Tech"
 	}],	
-	parentIdea: {
+	parentIdea: [{
 		type: Schema.Types.ObjectId,
 		ref: "Idea"
-	}
+	}]
 
 }, {
 	timestamps: {createdAt: "createdAt", updatedAt: "updatedAt"},

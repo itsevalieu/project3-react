@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 
 //Todo: 
-var UserSchema = new Schema(/*{
+var UserSchema = new Schema({
 	
 	firstName: { 
 		type: Schema.Types.String,
@@ -16,7 +16,7 @@ var UserSchema = new Schema(/*{
 	},
 	username: {
 		type: Schema.Types.String,
-		required: [true, "Please enter your  name."],
+		required: [true, "Please enter your name."],
 		lowercase: true,
 		unique: [true, "Username taken."]
 	},
@@ -26,8 +26,32 @@ var UserSchema = new Schema(/*{
 	},
 	email: {
 		type: Schema.Types.String,
-		required: [true, "Please enter your first name."],
+		required: [true, "Please enter your email."],
 		unique: [true, "Email already used."]
+	},
+	facebookId: {
+		type: Schema.Types.String,
+		required: [false, "Facebook ID"],
+	},
+	facebookToken: {
+		type: Schema.Types.String,	
+		required: [false, "Facebook Token"],
+	},
+	twitterId: {
+		type: Schema.Types.String,
+		required: [false, "Twitter ID"],
+	},
+	twitterToken: {
+		type: Schema.Types.String,	
+		required: [false, "Twitter Token"],
+	},
+	githubId: {
+		type: Schema.Types.String,
+		required: [false, "Github ID"],
+	},
+	githubToken: {
+		type: Schema.Types.String,	
+		required: [false, "Github Token"],
 	},
 	github: {
 		type: Schema.Types.String,	
@@ -52,15 +76,16 @@ var UserSchema = new Schema(/*{
 
 }, {
 	timestamps: {createdAt: "createdAt", updatedAt: "updatedAt"},
-	toJSON: {getters: true} //both path and virtual getters
-},*/{
+	toJSON: {getters: true}, //both path and virtual getters
+	id: false
+} /*{
 	facebook: {
 		id: String,
 		token: String,
 		email: String,
 		name: String
-	}	
-});
+	}*/	
+);
 
 var User = mongoose.model("User", UserSchema);
 
