@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import GeneratorIdea from '../components/GeneratorIdea.jsx';
 import GeneratorTechnology from '../components/GeneratorTechnology.jsx';
-	
-console.log('generator');
 
 class Generator extends Component {
 

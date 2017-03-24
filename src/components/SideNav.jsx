@@ -1,6 +1,13 @@
 import React from 'react';
 import { Icon, Row } from 'react-materialize';
 
+function getUserDetails() {
+	let userImage = document.querySelector('.profileImage');
+	console.log(userImage);
+	let userName = document.querySelector('.profileName');
+	console.log(userName);
+}
+
 const SideNav = () => {
 	return (
 		<div>

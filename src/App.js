@@ -2,28 +2,57 @@ import React, { PropTypes, Component } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import AuthFooter from './components/authFooter';
 
+function getLocation() {
+  let location = window.location.href;
+  location = location.substring(location.lastIndexOf('/'));
+  console.log(location);
+  let loggedIn = false;
+
+  if (location !== '/'){
+    loggedIn = true;
+  } 
+  console.log('return value: ' + loggedIn);
+  return loggedIn;
+}
 class App extends Component {
-  constructor(){
-    super();
-    this.state = {loggedIn: false}
+  constructor(props){
+    super(props);
+    this.state = {loggedIn: getLocation()}
   }
   render() {
-    return(
-      <div className="home">
-        <Header />
-        <div className="container App-content">
-        {this.props.children}
+    console.log(this.state.loggedIn);
+    if (this.state.loggedIn === true){
+      return(
+        <div className="home">
+          <Header />
+            <div className="container App-content">
+            {this.props.children}
+            </div>
+          <AuthFooter />
         </div>
-        <Footer />
-      </div>
+        );
+    }
+    else {
+      return(
+        <div className="home">
+          <Header />
+          <div className="container App-content">
+          {this.props.children}
+          </div>
+          <Footer />
+        </div>
       );
+   }
   }
 }
-
+App.defaultProps = {
+  loggedIn: getLocation()
+}
 App.propTypes = {
   children: PropTypes.node,
-  routes: PropTypes.array
+  routes: PropTypes.array,
 };
 
 export default App;
