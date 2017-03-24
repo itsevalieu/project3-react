@@ -16,6 +16,8 @@ router.get("/get", function(req, res) {
 		res.send(err);
 	});
 });
+
+//STILL TESTING THIS
 router.get("/get/completedProjects", function(req, res) {
 	User.where('projects', {'completed': true}).count(function(err, count) {
 		if (err) {
