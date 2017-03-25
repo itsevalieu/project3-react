@@ -66,4 +66,25 @@ ul#footer {
 #learnMore {
   padding-left: 15px; }
 
+#ideaGeneratorBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-image: url(../../images/ideaGeneratorBox.png);
+  color: white; }
+
+#techGeneratorBox {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-image: url(../../images/techGeneratorBox.png);
+  color: white; }
+
+.generatorBoxContent {
+  padding-top: 50%; }
+
 /*# sourceMappingURL=codespiration.css.map */
