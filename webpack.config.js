@@ -21,14 +21,12 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loaders: ["style-loader", "css-loader"]
+                loaders: ["style-loader", "css-loader"],
+                include: path.join(__dirname, "/src/styles")
             },
             {
                 test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-                loader: 'url-loader?limit=10000$name=images/[hash:12].[ext]',
-                options: {
-                    limit: 10000
-                }
+                loader: ["url-loader"]
             }
         ]
     }
