@@ -1,8 +1,8 @@
 import React from 'react';
 import { Row, Button, Input, Icon, Col } from 'react-materialize';
-import GitHubMark from '../../public/assets/images/GitHub-Mark-32px.png';
-import FaceBookIcon from '../../public/assets/images/facebook-icon.jpg';
-import TwitterIcon from '../../public/assets/images/twitter-icon.jpg';
+// import GitHubMark from '../../public/assets/images/GitHub-Mark-32px.png';
+// import FaceBookIcon from '../../public/assets/images/facebook-icon.jpg';
+// import TwitterIcon from '../../public/assets/images/twitter-icon.jpg';
 /*
 function submitUserDetails() {
 	console.log('submit sign up details');
