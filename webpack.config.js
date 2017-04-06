@@ -22,11 +22,12 @@ module.exports = {
             {
                 test: /\.css$/,
                 loaders: ["style-loader", "css-loader"],
-                include: path.join(__dirname, "/src/css")
+                include: path.join(__dirname, "/src/public/assets/css")
             },
             {
                 test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-                loaders: ["url-loader"]
+                loader: 'url-loader?name=/assets/images/[name].[ext]',
+                include: path.join(__dirname, "/src/public/assets/images")
             }
         ]
     }

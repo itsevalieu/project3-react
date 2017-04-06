@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Modal, Col, Row } from 'react-materialize';
-import '../css/codespiration.css';
+import '../public/assets/css/codespiration.css';
 
 
 let GeneratorIdeaTech = () => {
