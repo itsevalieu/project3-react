@@ -1,6 +1,6 @@
 // Dashboard Left Column Component - dashLeftColumn.jsx
 import React, { Component, PropTypes } from "react";
-import "./dashboard.css";
+// import "./dashboard.css";
 
 class ideaCard extends Component {
 	render(){

@@ -63,6 +63,8 @@
 	
 	var _reactRouter = __webpack_require__(179);
 	
+	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./index.css\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	
 	var _App = __webpack_require__(234);
 	
 	var _App2 = _interopRequireDefault(_App);
@@ -117,8 +119,6 @@
 			_react2.default.createElement(_reactRouter.Route, { path: '/*', component: _PageNotFound2.default })
 		)
 	);
-	//import './index.css';
-	
 	_reactDom2.default.render(appEntry, document.querySelector('#root'));
 
 /***/ },
@@ -26608,6 +26608,8 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./App.css\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	
 	var _Header = __webpack_require__(235);
 	
 	var _Header2 = _interopRequireDefault(_Header);
@@ -26616,6 +26618,10 @@
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
 	
+	var _authFooter = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./components/authFooter\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	
+	var _authFooter2 = _interopRequireDefault(_authFooter);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26623,41 +26629,70 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	// import './App.css';
 	
+	function getLocation() {
+	  var location = window.location.href;
+	  location = location.substring(location.lastIndexOf('/'));
+	  console.log(location);
+	  var loggedIn = false;
+	
+	  if (location !== '/') {
+	    loggedIn = true;
+	  }
+	  console.log('return value: ' + loggedIn);
+	  return loggedIn;
+	}
 	
 	var App = function (_Component) {
 	  _inherits(App, _Component);
 	
-	  function App() {
+	  function App(props) {
 	    _classCallCheck(this, App);
 	
-	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
+	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 	
-	    _this.state = { loggedIn: false };
+	    _this.state = { loggedIn: getLocation() };
 	    return _this;
 	  }
 	
 	  _createClass(App, [{
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'home' },
-	        _react2.default.createElement(_Header2.default, null),
-	        _react2.default.createElement(
+	      console.log(this.state.loggedIn);
+	      if (this.state.loggedIn === true) {
+	        return _react2.default.createElement(
 	          'div',
-	          { className: 'container App-content' },
-	          this.props.children
-	        ),
-	        _react2.default.createElement(_Footer2.default, null)
-	      );
+	          { className: 'home' },
+	          _react2.default.createElement(_Header2.default, null),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'container App-content' },
+	            this.props.children
+	          ),
+	          _react2.default.createElement(_authFooter2.default, null)
+	        );
+	      } else {
+	        return _react2.default.createElement(
+	          'div',
+	          { className: 'home' },
+	          _react2.default.createElement(_Header2.default, null),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'container App-content' },
+	            this.props.children
+	          ),
+	          _react2.default.createElement(_Footer2.default, null)
+	        );
+	      }
 	    }
 	  }]);
 	
 	  return App;
 	}(_react.Component);
 	
+	App.defaultProps = {
+	  loggedIn: getLocation()
+	};
 	App.propTypes = {
 	  children: _react.PropTypes.node,
 	  routes: _react.PropTypes.array
@@ -31365,21 +31400,33 @@
 	
 	var _reactMaterialize = __webpack_require__(236);
 	
+	var _GitHubMark32px = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../../public/assets/images/GitHub-Mark-32px.png\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	
+	var _GitHubMark32px2 = _interopRequireDefault(_GitHubMark32px);
+	
+	var _facebookIcon = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../../public/assets/images/facebook-icon.jpg\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	
+	var _facebookIcon2 = _interopRequireDefault(_facebookIcon);
+	
+	var _twitterIcon = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../../public/assets/images/twitter-icon.jpg\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	
+	var _twitterIcon2 = _interopRequireDefault(_twitterIcon);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	/*
 	function submitUserDetails() {
 		console.log('submit sign up details');
-		/*
-	 const xhr = new XMLHttpRequest();
-	 xhr.open('GET', '/api/user');
-	 xhr.onload = function() {
-	 	if(){}
-	 		else{}
-	 };
-	 xhr.send();
-	 */
-	}
-	
+		
+		const xhr = new XMLHttpRequest();
+		xhr.open('GET', '/api/user');
+		xhr.onload = function() {
+			if(){}
+				else{}
+		};
+		xhr.send();
+	} 
+	*/
 	var SignUpModal = function SignUpModal() {
 		return _react2.default.createElement(
 			'div',
@@ -31449,40 +31496,26 @@
 				null,
 				_react2.default.createElement(
 					_reactMaterialize.Col,
-					{ s: 4, offset: 's10' },
+					{ s: 1 },
+					_react2.default.createElement('img', { src: _GitHubMark32px2.default, alt: 'GitHub Alternative Sign Up Method' })
+				),
+				_react2.default.createElement(
+					_reactMaterialize.Col,
+					{ s: 1 },
+					_react2.default.createElement('img', { src: _facebookIcon2.default, alt: 'Facebook Alternative Sign Up Method' })
+				),
+				_react2.default.createElement(
+					_reactMaterialize.Col,
+					{ s: 1 },
+					_react2.default.createElement('img', { src: _twitterIcon2.default, alt: 'Twitter Alternative Sign Up Method' })
+				),
+				_react2.default.createElement(
+					_reactMaterialize.Col,
+					{ s: 3, offset: 's6' },
 					_react2.default.createElement(
 						_reactMaterialize.Button,
 						{ className: 'red' },
 						'Submit'
-					)
-				)
-			),
-			_react2.default.createElement(
-				_reactMaterialize.Row,
-				null,
-				_react2.default.createElement(
-					_reactMaterialize.Dropdown,
-					{ className: 'silver', trigger: _react2.default.createElement(
-							_reactMaterialize.Button,
-							{ className: 'btn black', waves: 'light' },
-							'Alt. Sign Up Methods'
-						) },
-					_react2.default.createElement(
-						_reactMaterialize.NavItem,
-						null,
-						'Facebook'
-					),
-					_react2.default.createElement(_reactMaterialize.NavItem, { divider: true }),
-					_react2.default.createElement(
-						_reactMaterialize.NavItem,
-						null,
-						'GitHub'
-					),
-					_react2.default.createElement(_reactMaterialize.NavItem, { divider: true }),
-					_react2.default.createElement(
-						_reactMaterialize.NavItem,
-						null,
-						'Twitter'
 					)
 				)
 			)
@@ -31860,6 +31893,13 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	function getUserDetails() {
+		var userImage = document.querySelector('.profileImage');
+		console.log(userImage);
+		var userName = document.querySelector('.profileName');
+		console.log(userName);
+	}
+	
 	var SideNav = function SideNav() {
 		return _react2.default.createElement(
 			'div',
@@ -31873,12 +31913,16 @@
 					_react2.default.createElement(
 						'div',
 						{ id: 'profileImage' },
-						'Profile Image'
+						_react2.default.createElement(
+							_reactMaterialize.Icon,
+							{ className: 'large' },
+							'perm_identity'
+						)
 					),
 					_react2.default.createElement(
 						'div',
 						{ id: 'profileName' },
-						'Profile Name'
+						'Demo Guest'
 					)
 				)
 			),
@@ -31897,7 +31941,7 @@
 			),
 			_react2.default.createElement(
 				_reactMaterialize.Row,
-				{ className: 'sideNavBar' },
+				{ className: 'sideNavBar chatroom' },
 				_react2.default.createElement(
 					'div',
 					null,
@@ -31910,7 +31954,7 @@
 			),
 			_react2.default.createElement(
 				_reactMaterialize.Row,
-				{ className: 'sideNavBar' },
+				{ className: 'sideNavBar leaderboard' },
 				_react2.default.createElement(
 					'div',
 					null,
@@ -31939,13 +31983,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactMaterialize = __webpack_require__(236);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var NotificationWindow = function NotificationWindow() {
 		console.log('dashboard right column');
 		return _react2.default.createElement(
-			'div',
-			{ id: 'dash-rightColumn', className: 'col m6' },
+			_reactMaterialize.Row,
+			{ id: 'dash-rightColumn', s: 6 },
 			_react2.default.createElement(
 				'h4',
 				{ className: 'grey-text text-darken-4' },
@@ -31956,8 +32002,8 @@
 				)
 			),
 			_react2.default.createElement(
-				'ul',
-				{ className: 'collapsible', 'data-collapsible': 'accordian' },
+				_reactMaterialize.Collapsible,
+				{ 'data-collapsible': 'accordian' },
 				_react2.default.createElement(
 					'li',
 					null,
@@ -31965,16 +32011,16 @@
 						'div',
 						{ className: 'collapsible-header' },
 						_react2.default.createElement(
-							'span',
-							{ className: 'new badge red' },
-							'4'
+							_reactMaterialize.Badge,
+							{ className: 'silver' },
+							'4 Days Left'
 						),
 						_react2.default.createElement(
-							'i',
-							{ className: 'material-icons' },
-							'filter_drama'
+							_reactMaterialize.Icon,
+							null,
+							'whatshot'
 						),
-						'First '
+						'Introduction to HTML/CSS'
 					),
 					_react2.default.createElement(
 						'div',
@@ -31982,8 +32028,71 @@
 						_react2.default.createElement(
 							'p',
 							null,
-							'Loren ipsum dolor sit amet. ',
-							' '
+							'Complete your first assignment in learning HTML/CSS.  Create a website with Hello World displayed, centered and in large, bold text.  Try to impliment pseudoclasses to create hover effects or to change the text to different colors after a certain time has elapsed.'
+						)
+					)
+				)
+			),
+			_react2.default.createElement(
+				_reactMaterialize.Collapsible,
+				{ 'data-collapsible': 'accordian' },
+				_react2.default.createElement(
+					'li',
+					null,
+					_react2.default.createElement(
+						'div',
+						{ className: 'collapsible-header' },
+						_react2.default.createElement(
+							_reactMaterialize.Badge,
+							{ className: 'silver' },
+							'7 Days Left'
+						),
+						_react2.default.createElement(
+							_reactMaterialize.Icon,
+							null,
+							'reorder'
+						),
+						'Introduction to Javascript'
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'collapsible-body' },
+						_react2.default.createElement(
+							'p',
+							null,
+							'Now that your Hello World website has been created, we\'re going to use Javascript to modify the page, add click events.  Try to change the font when the words are clicked or have it repeat Hello World every time you hit the enter button.'
+						)
+					)
+				)
+			),
+			_react2.default.createElement(
+				_reactMaterialize.Collapsible,
+				{ 'data-collapsible': 'accordian' },
+				_react2.default.createElement(
+					'li',
+					null,
+					_react2.default.createElement(
+						'div',
+						{ className: 'collapsible-header' },
+						_react2.default.createElement(
+							_reactMaterialize.Badge,
+							{ className: 'silver' },
+							'12 Days Left'
+						),
+						_react2.default.createElement(
+							_reactMaterialize.Icon,
+							null,
+							'reorder'
+						),
+						'JQuery & AJAX Calls'
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'collapsible-body' },
+						_react2.default.createElement(
+							'p',
+							null,
+							'Now that you have your feet wet with Javascript, let\'s try some jQuery.  JQuery might simplify certain actions like Ajax calls, keeping your code shorter and more readable.  Make sure to include jQuery in your HTML file and let\'s try to append new data from an outside source.'
 						)
 					)
 				)
@@ -32092,8 +32201,6 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	console.log('generator');
 	
 	var Generator = function (_Component) {
 		_inherits(Generator, _Component);
@@ -32253,6 +32360,8 @@
 		value: true
 	});
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _react = __webpack_require__(2);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -32261,42 +32370,90 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var GeneratorIdeaModal = function GeneratorIdeaModal() {
-		return _react2.default.createElement(
-			'div',
-			null,
-			_react2.default.createElement(
-				_reactMaterialize.Row,
-				null,
-				_react2.default.createElement(
-					_reactMaterialize.Col,
-					{ s: 12 },
-					'Go forth and program me a To-Do List, written in Javascript / jQuery.'
-				)
-			),
-			_react2.default.createElement(
-				_reactMaterialize.Row,
-				null,
-				_react2.default.createElement(
-					_reactMaterialize.Col,
-					{ s: 6 },
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var ideaList = ['To Do List', 'Tic Tac Toe', 'Blog Site', 'Hangman'];
+	var codeLanguage = ['jQuery', 'PHP', 'Python', 'Java'];
+	
+	function getRandomEntry(array) {
+		var upperBound = array.length;
+		//console.log(upperBound);
+		var randomIndex = Math.floor(Math.random() * upperBound);
+		//console.log(array[randomIndex]);
+		return array[randomIndex];
+	}
+	
+	var GeneratorIdeaModal = function (_Component) {
+		_inherits(GeneratorIdeaModal, _Component);
+	
+		function GeneratorIdeaModal(props) {
+			_classCallCheck(this, GeneratorIdeaModal);
+	
+			var _this = _possibleConstructorReturn(this, (GeneratorIdeaModal.__proto__ || Object.getPrototypeOf(GeneratorIdeaModal)).call(this, props));
+	
+			_this.state = {
+				idea: getRandomEntry(ideaList),
+				codeLanguage: getRandomEntry(codeLanguage)
+			};
+	
+			return _this;
+		}
+	
+		_createClass(GeneratorIdeaModal, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
 					_react2.default.createElement(
-						_reactMaterialize.Button,
-						{ className: 'btn btn-large black', waves: 'light' },
-						'No Thanks'
-					)
-				),
-				_react2.default.createElement(
-					_reactMaterialize.Col,
-					{ s: 6 },
+						_reactMaterialize.Row,
+						null,
+						_react2.default.createElement(
+							_reactMaterialize.Col,
+							{ s: 12 },
+							'Go forth and program me ',
+							this.props.idea,
+							', using ',
+							this.props.codeLanguage,
+							'.'
+						)
+					),
 					_react2.default.createElement(
-						_reactMaterialize.Button,
-						{ className: 'btn btn-large red', waves: 'light' },
-						'I Accept'
+						_reactMaterialize.Row,
+						null,
+						_react2.default.createElement(
+							_reactMaterialize.Col,
+							{ s: 6 },
+							_react2.default.createElement(
+								_reactMaterialize.Button,
+								{ className: 'btn btn-large black', waves: 'light' },
+								'No Thanks'
+							)
+						),
+						_react2.default.createElement(
+							_reactMaterialize.Col,
+							{ s: 6 },
+							_react2.default.createElement(
+								_reactMaterialize.Button,
+								{ className: 'btn btn-large red', waves: 'light' },
+								'I Accept'
+							)
+						)
 					)
-				)
-			)
-		);
+				);
+			}
+		}]);
+	
+		return GeneratorIdeaModal;
+	}(_react.Component);
+	
+	GeneratorIdeaModal.defaultProps = {
+		idea: getRandomEntry(ideaList),
+		codeLanguage: getRandomEntry(codeLanguage)
 	};
 	exports.default = GeneratorIdeaModal;
 
@@ -32323,7 +32480,6 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var GeneratorTechnology = function GeneratorTechnology() {
-		console.log('Generator Technology');
 		return _react2.default.createElement(
 			'div',
 			null,
@@ -32370,18 +32526,6 @@
 		);
 	};
 	exports.default = GeneratorTechnology;
-	
-	/*
-	<div id='generator-technology' className='col s6'>
-				<h5 className='header col s12 light'>
-					I want to learn a new <b>technology</b>...
-				</h5>
-				<a href='#techGeneratorModal' type='submit' name='action' className='btn-large waves-effect waves-light red'>
-					Teach Me Tech
-				</a>
-			{<GeneratorTechnologyModal />}
-			</div>
-	*/
 
 /***/ },
 /* 294 */
@@ -32393,6 +32537,8 @@
 		value: true
 	});
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _react = __webpack_require__(2);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -32401,47 +32547,99 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var GeneratorTechModal = function GeneratorTechModal() {
-		return _react2.default.createElement(
-			'div',
-			null,
-			_react2.default.createElement(
-				_reactMaterialize.Row,
-				null,
-				'Have you tried using React?  Have you tried using it with jQuery?  Fun huh?'
-			),
-			_react2.default.createElement(
-				_reactMaterialize.Row,
-				null,
-				_react2.default.createElement(
-					_reactMaterialize.Col,
-					{ s: 6 },
-					_react2.default.createElement(
-						_reactMaterialize.Button,
-						{ className: 'btn btn-large black', waves: 'light' },
-						'No Thanks'
-					)
-				),
-				_react2.default.createElement(
-					_reactMaterialize.Col,
-					{ s: 6 },
-					_react2.default.createElement(
-						_reactMaterialize.Button,
-						{ className: 'btn btn-large red', waves: 'light' },
-						'I Accept'
-					)
-				)
-			)
-		);
-	};
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var frontLang = ['Javascript', 'Python', 'PHP', 'jQuery', 'Something Else'];
+	var backLang = ['Java', 'Ruby', 'Python', 'Perl'];
+	var databaseType = ['Firebase', 'MongoDB', 'MySQL'];
+	
+	function getRandomEntry(array) {
+		var upperBound = array.length;
+		//console.log(upperBound);
+		var randomIndex = Math.floor(Math.random() * upperBound);
+		//console.log(array[randomIndex]);
+		return array[randomIndex];
+	}
+	
+	var GeneratorTechModal = function (_Component) {
+		_inherits(GeneratorTechModal, _Component);
+	
+		function GeneratorTechModal(props) {
+			_classCallCheck(this, GeneratorTechModal);
+	
+			var _this = _possibleConstructorReturn(this, (GeneratorTechModal.__proto__ || Object.getPrototypeOf(GeneratorTechModal)).call(this, props));
+	
+			_this.state = {
+				frontLanguage: getRandomEntry(frontLang),
+				backLanguage: getRandomEntry(backLang),
+				databaseTech: getRandomEntry(databaseType)
+	
+			};
+			return _this;
+		}
+	
+		_createClass(GeneratorTechModal, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						_reactMaterialize.Row,
+						null,
+						'Have you tried using ',
+						this.props.frontLanguage,
+						'?  Have you tried using it with ',
+						this.props.backLanguage,
+						'?  What about connecting that to a ',
+						this.props.databaseType,
+						' database?'
+					),
+					_react2.default.createElement(
+						_reactMaterialize.Row,
+						null,
+						_react2.default.createElement(
+							_reactMaterialize.Col,
+							{ s: 6 },
+							_react2.default.createElement(
+								_reactMaterialize.Button,
+								{ className: 'btn btn-large black', waves: 'light' },
+								'No Thanks'
+							)
+						),
+						_react2.default.createElement(
+							_reactMaterialize.Col,
+							{ s: 6 },
+							_react2.default.createElement(
+								_reactMaterialize.Button,
+								{ className: 'btn btn-large red', waves: 'light' },
+								'I Accept'
+							)
+						)
+					)
+				);
+			}
+		}]);
+	
+		return GeneratorTechModal;
+	}(_react.Component);
+	
+	GeneratorTechModal.defaultProps = {
+		frontLanguage: getRandomEntry(frontLang),
+		backLanguage: getRandomEntry(backLang),
+		databaseType: getRandomEntry(databaseType)
+	};
 	exports.default = GeneratorTechModal;
 
 /***/ },
 /* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -32452,6 +32650,8 @@
 	var _react = __webpack_require__(2);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactMaterialize = __webpack_require__(236);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -32473,12 +32673,42 @@
 		}
 	
 		_createClass(Chatroom, [{
-			key: "render",
+			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
-					"div",
-					{ className: "chatroom" },
-					"HELLO CHAT!!!"
+					'div',
+					{ className: 'chatroom' },
+					_react2.default.createElement(
+						_reactMaterialize.Row,
+						null,
+						_react2.default.createElement(
+							_reactMaterialize.Col,
+							{ s: 12 },
+							'Main Chat Window'
+						)
+					),
+					_react2.default.createElement(
+						_reactMaterialize.Row,
+						null,
+						_react2.default.createElement(
+							_reactMaterialize.Col,
+							{ s: 10 },
+							'Send Window'
+						),
+						_react2.default.createElement(
+							_reactMaterialize.Col,
+							{ s: 2 },
+							_react2.default.createElement(
+								_reactMaterialize.Button,
+								null,
+								_react2.default.createElement(
+									_reactMaterialize.Icon,
+									null,
+									'question_answer'
+								)
+							)
+						)
+					)
 				);
 			}
 		}]);
@@ -32590,7 +32820,7 @@
 /* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -32602,6 +32832,8 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactMaterialize = __webpack_require__(236);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -32609,6 +32841,10 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	function goBack() {
+		window.history.back();
+	}
 	
 	var PageNotFound = function (_Component) {
 		_inherits(PageNotFound, _Component);
@@ -32620,16 +32856,30 @@
 		}
 	
 		_createClass(PageNotFound, [{
-			key: "render",
+			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
-					"div",
-					{ className: "default" },
-					"ERROR 404: Page Not Found ",
+					_reactMaterialize.Row,
+					{ className: 'default' },
 					_react2.default.createElement(
-						"a",
-						{ href: "/" },
-						"Return to Previous Page"
+						_reactMaterialize.Col,
+						{ s: 12 },
+						_react2.default.createElement(
+							_reactMaterialize.Icon,
+							{ className: 'medium material-icons' },
+							'error'
+						),
+						_react2.default.createElement(
+							'h2',
+							null,
+							'ERROR 404: Page Not Found'
+						),
+						_react2.default.createElement('br', null),
+						_react2.default.createElement(
+							'a',
+							{ href: '#', onClick: goBack },
+							'Return to Previous Page'
+						)
 					)
 				);
 			}
