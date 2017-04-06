@@ -22,7 +22,7 @@ module.exports = {
             {
                 test: /\.css$/,
                 loaders: ["style-loader", "css-loader"],
-                include: path.join(__dirname, "/src/styles")
+                include: path.join(__dirname, "/src/css")
             },
             {
                 test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
