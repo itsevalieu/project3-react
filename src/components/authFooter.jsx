@@ -1,6 +1,36 @@
 import React, { Component } from 'react';
 import { Row, Col, Button } from 'react-materialize';
 
+function signOut() {
+	console.log('sign me out');
+}
+
+class AuthFooter extends Component {
+	render() {
+		return(
+			<footer>
+				<ul id='footer'>
+					<li className='left'>
+						&copy; CODESPIRATION <i>Beta</i> 2017. All Rights Reserved.
+					</li>
+					<li className='left' id='learn-more'>
+						<a href='/about'><i>Learn More</i></a>
+					</li>
+					<li className='right'>
+						<Button id='signOut' onClick={signOut}>
+							Sign Out
+						</Button>
+					</li>
+				</ul>
+			</footer>
+			);
+	}
+}
+
+
+export default AuthFooter;
+
+/*
 const AuthFooter = () => {
 		return(
 			<footer id='footer' className="page-footer grey darken-1">
@@ -27,9 +57,7 @@ const AuthFooter = () => {
 			</footer>
 			);
 }
-export default AuthFooter;
 
-/*
 <div class="footer-copyright grey darken-2">
 
 				<div class="container">

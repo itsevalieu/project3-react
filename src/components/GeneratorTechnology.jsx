@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Button, Modal, Col, Row } from 'react-materialize';
 import GeneratorTechModal from './GeneratorTechModal.jsx';
 
+class GeneratorTechnology extends Component {
+	render() {
+		return(
+			<div id='techGenerator'>
+				<div className='container'>
+					<div className='generator-box'>
+						<h3>Teach Me Tech</h3>
+						<p>
+							Want to learn a new technology, but can't decide on which one?  Click below to teach yourself a randomly generated technolgy stack to use on your next project or revamp a previous code project.
+						</p>
+						<Modal header='Tech Stack Generator' trigger={<Button className='button generator-button'>GO!</Button>}>
+							<GeneratorTechModal />
+						</Modal>
+					</div>
+				</div>
+			</div>
+		);
+	}
+}
+export default GeneratorTechnology;
+
+/* 
 const GeneratorTechnology = () => {
 	return(
 		<div>
@@ -24,4 +46,4 @@ const GeneratorTechnology = () => {
 		</div>	
 	);
 }
-export default GeneratorTechnology;
+*/

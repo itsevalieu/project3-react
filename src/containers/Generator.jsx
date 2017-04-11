@@ -7,6 +7,18 @@ class Generator extends Component {
 	render(){
 		return(
 			<main id='generator'>
+				<GeneratorIdea />
+				<GeneratorTechnology />
+			</main>
+		);
+	}
+}
+export default Generator;
+
+/*
+
+
+			<main id='generator'>
 				<div id='index-banner' className='section no-pad-bot'>
 					<div className='container'>
 						<div className='center_section'>
@@ -21,7 +33,6 @@ class Generator extends Component {
 					</div>
 				</div>
 			</main>
-		);
-	}
-}
-export default Generator;
+
+
+*/

@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Button, Modal, Col, Row } from 'react-materialize';
 import GeneratorIdeaModal from './GeneratorIdeaModal';
 
-
-let GeneratorIdea = () => {
+class GeneratorIdea extends Component {
+	render() {
 	return(
-	<div>
+		<div className='generator row'>
+			<div id='ideaGenerator'>
+				<div className='container'>
+					<div className='generator-box'>
+						<h3>Give Me Ideas</h3>
+						<p>
+							Need inspiration for a coding project?  Click below to randomly generate a revolutionary idea!
+						</p>
+						<Modal header='Idea Generator' trigger={<Button className='button generator-button'>GO!</Button>}>
+							<GeneratorIdeaModal />
+						</Modal>
+					</div>
+				</div>
+			</div>
+		</div>
+		);
+	}
+}
+export default GeneratorIdea;
+
+	/*
+
+		<div>
 		<Col s={6}>
 			<Row>
 				<Col s={12}>
@@ -24,7 +46,7 @@ let GeneratorIdea = () => {
 		</Col>
 	</div>
 
-	/*
+
 	console.log('Generator Idea');
 	return(
 		<div id='generator-idea' className='col s6'>
@@ -35,6 +57,3 @@ let GeneratorIdea = () => {
 			<GeneratorIdeaModal />
 		</div>
 		*/
-		);
-}
-export default GeneratorIdea;

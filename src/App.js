@@ -1,8 +1,9 @@
 import React, { PropTypes, Component } from 'react';
 import './App.css';
 import Header from './components/Header';
+import AuthHeader from './components/AuthHeader';
 import Footer from './components/Footer';
-import AuthFooter from './components/authFooter';
+import AuthFooter from './components/AuthFooter';
 
 function getLocation() {
   let location = window.location.href;
@@ -26,7 +27,7 @@ class App extends Component {
     if (this.state.loggedIn === true){
       return(
         <div className="home">
-          <Header />
+          <AuthHeader />
             <div className="container App-content">
             {this.props.children}
             </div>
