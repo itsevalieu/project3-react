@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Row, Col, Button } from 'react-materialize';
+import '../../public/assets/css/footer.css';
 
 function signOut() {
 	console.log('sign me out');
+	window.location = ('/');
 }
 
 class AuthFooter extends Component {
@@ -23,7 +25,7 @@ class AuthFooter extends Component {
 					</li>
 				</ul>
 			</footer>
-			);
+		);
 	}
 }
 

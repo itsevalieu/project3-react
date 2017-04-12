@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Button, Modal } from 'react-materialize';
-import Logo from '../../public/assets/images/logo.svg';
+import Logo from '../../public/assets/images/logo.png';
 import SignInModal from './signInModal.jsx';
 import SignUpModal from './signUpModal.jsx';
-import '../../public/assets/sass/components/header.scss';
+import '../../public/assets/css/header.css';
 
 class Header extends Component {
 	render() {
@@ -14,11 +14,15 @@ class Header extends Component {
 						<a href='#home' className='nav-logo'>
 							<img className='logoImage' src={Logo} />
 						</a>
-						<a href='#submissions'>Submissions</a>
-						<a href='#generator'>Generator</a>
-						<a href='#dashboard'>Dashboard</a>
-						<a href=''>Sign Up</a>
-						<a href=''>Sign In</a>
+						<a href='/submissions'>Submissions</a>
+						<a href='/generator'>Generator</a>
+						<a href='/dashboard'>Dashboard</a>
+						<Modal header='Sign In:' trigger={<Button className='btn green'>Sign Up</Button>}>
+							<SignUpModal />
+						</Modal>
+						<Modal header='' trigger={<Button className='btn red'>Sign In</Button>}>
+							<SignInModal />
+						</Modal>
 						{
 						//<a href='' className='icon' onclick={myFunction}>&#9776;</a>
 						}
