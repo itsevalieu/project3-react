@@ -4,7 +4,7 @@
   left: 0;
   width: 50%;
   height: 100%;
-  background-image: url(../../images/idea-generator.png);
+  background-image: url(../images/idea-generator.png);
   color: white;
 }
 #techGenerator {
@@ -13,7 +13,7 @@
   right: 0;
   width: 50%;
   height: 100%;
-  background-image: url(../../images/tech-generator.png);
+  background-image: url(../images/tech-generator.png);
   color: white;
 }
 .generator-box {
@@ -43,7 +43,7 @@
     top: 0px;
     left: 0;
     width: 100%;
-    background-image: url(../../images/idea-generator.png);
+    background-image: url(../images/idea-generator.png);
     color: white;
   }
   #techGenerator {
@@ -51,7 +51,7 @@
     top: 0px;
     right: 0;
     width: 100%;
-    background-image: url(../../images/tech-generator.png);
+    background-image: url(../images/tech-generator.png);
     color: white;
   }
 }
