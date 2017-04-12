@@ -15,7 +15,7 @@ const GeneratorTechnology = () => {
 				</Row>
 				<Row>
 					<Col s={12}>
-						<Modal header='Tech Generator' trigger={<Button className='red btn btn-large' waves='light'>Tech Me Tech</Button>}>
+						<Modal trigger={<Button className='red btn btn-large' waves='light'>Tech Me Tech</Button>}>
 							<GeneratorTechModal />
 						</Modal>
 					</Col>

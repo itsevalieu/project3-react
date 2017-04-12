@@ -4,6 +4,7 @@ import GeneratorIdeaModal from './GeneratorIdeaModal';
 
 
 let GeneratorIdea = () => {
+
 	return(
 	<div>
 		<Col s={6}>
@@ -16,7 +17,7 @@ let GeneratorIdea = () => {
 			</Row>
 			<Row>
 				<Col s={12}>
-					<Modal header='Idea Generator' trigger={<Button className='red btn btn-large' waves='light'>Give Me Ideas</Button>}>
+					<Modal actions={<Button waves='light' className='btn-btn-large red' modal='close'>Accept</Button>} trigger={<Button className='red btn btn-large' waves='light'>Give Me Ideas</Button>}>
 						<GeneratorIdeaModal />
 					</Modal>
 				</Col>
