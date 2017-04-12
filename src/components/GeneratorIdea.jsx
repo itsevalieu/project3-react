@@ -22,8 +22,7 @@ let GeneratorIdea = () => {
 				</Row>
 			</Col>
 		</div>
-		);
-	}
+	);
 }
 export default GeneratorIdea;
 
