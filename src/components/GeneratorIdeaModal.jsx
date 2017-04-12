@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Col, Row } from 'react-materialize';
+import { Col, Row } from 'react-materialize';
 
 const ideaList = ['To Do List', 'Tic Tac Toe', 'Blog Site', 'Hangman'];
 const codeLanguage = ['jQuery', 'PHP', 'Python', 'Java'];
