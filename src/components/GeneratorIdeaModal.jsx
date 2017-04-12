@@ -23,26 +23,28 @@ class GeneratorIdeaModal extends Component {
 
 	}
 	render() {
-	return(
-		<div>
-			<Row>
-				<Col s={12}>
-					Go forth and program me {this.props.idea}, using {this.props.codeLanguage}.
-				</Col>
-			</Row>
-			<Row>
-				<Col s={6}>
-					<Button className='btn btn-large black' waves='light'>
-						No Thanks
-					</Button>
-				</Col>
-				<Col s={6}>
-					<Button className='btn btn-large red' waves='light'>
-						I Accept
-					</Button>
-				</Col>
-			</Row>
-		</div>
+		const divStyle = {
+			"fontFamily": "'Lato', sans-serif", 
+			"color": "black", 
+			"fontWeight": 300, 
+			"textTransform": "uppercase"
+		}
+		return(
+			<div>
+				<Row>
+					<Col s={12}>
+						<h5 className="red-text" style={divStyle}>The Coding Overlords have spoken...</h5>
+					</Col>
+				</Row>
+				<Row>
+					<Col s={12}>
+						<h6>Go forth and program me:</h6>
+						<h4 className="center">{this.props.idea}</h4>
+						<h6>while using:</h6> 
+						<h4 className="center">{this.props.codeLanguage}</h4>
+					</Col>
+				</Row>
+			</div>
 		);
 	}
 }
