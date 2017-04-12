@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Col, Row } from 'react-materialize';
+import { Col, Row } from 'react-materialize';
 
 const frontLang = ['Javascript', 'Python', 'PHP', 'jQuery', 'Something Else'];
 const backLang = ['Java', 'Ruby', 'Python', 'Perl'];
@@ -24,21 +24,28 @@ class GeneratorTechModal extends Component {
 		};
 	}
 	render(){
+	const divStyle = {
+		"fontFamily": "'Lato', sans-serif", 
+		"color": "black", 
+		"fontWeight": 300, 
+		"textTransform": "uppercase"
+	}
+	
 	return(
 		<div>
 			<Row>
-				Have you tried using {this.props.frontLanguage}?  Have you tried using it with {this.props.backLanguage}?  What about connecting that to a {this.props.databaseType} database?
+				<Col s={12}>
+					<h5 className="red-text" style={divStyle}>The Coding Overlords have spoken...</h5>
+				</Col>
 			</Row>
 			<Row>
-				<Col s={6}>
-					<Button className='btn btn-large black' waves='light'>
-						No Thanks
-					</Button>
-				</Col>
-				<Col s={6}>
-					<Button className='btn btn-large red' waves='light'>
-						I Accept
-					</Button>
+				<Col s={12}>
+					<h6>Have you tried using:</h6>
+					<h4 className="center">{this.props.frontLanguage}</h4>
+					<h6>Have you tried using it with</h6> 
+					<h4 className="center">{this.props.backLanguage}</h4>
+					<h6>What about connecting that to a </h6>
+					<h4 className="center">{this.props.databaseType}</h4>
 				</Col>
 			</Row>
 		</div>
