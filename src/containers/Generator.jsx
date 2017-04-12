@@ -1,11 +1,24 @@
 import React, { Component } from 'react';
 import GeneratorIdea from '../components/GeneratorIdea.jsx';
 import GeneratorTechnology from '../components/GeneratorTechnology.jsx';
+import '../../public/assets/css/generator.css';
 
 class Generator extends Component {
 
 	render(){
 		return(
+			<main id='generator'>
+				<GeneratorIdea />
+				<GeneratorTechnology />
+			</main>
+		);
+	}
+}
+export default Generator;
+
+/*
+
+
 			<main id='generator'>
 				<div id='index-banner' className='section no-pad-bot'>
 					<div className='container'>
@@ -21,7 +34,6 @@ class Generator extends Component {
 					</div>
 				</div>
 			</main>
-		);
-	}
-}
-export default Generator;
+
+
+*/

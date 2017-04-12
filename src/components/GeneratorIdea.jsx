@@ -1,12 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Button, Modal, Col, Row } from 'react-materialize';
 import GeneratorIdeaModal from './GeneratorIdeaModal';
 
-
 let GeneratorIdea = () => {
-
 	return(
-	<div>
+		<div>
+			<Col s={6}>
+				<Row>
+					<Col s={12}>
+					<h5 className='header light'>
+						I need a new project <b>idea</b>...
+					</h5>
+					</Col>
+				</Row>
+				<Row>
+					<Col s={12}>
+						<Modal actions={<Button waves='light' className='btn-btn-large red' modal='close'>Accept</Button>} trigger={<Button className='red btn btn-large' waves='light'>Give Me Ideas</Button>}>
+							<GeneratorIdeaModal />
+						</Modal>
+					</Col>
+				</Row>
+			</Col>
+		</div>
+		);
+	}
+}
+export default GeneratorIdea;
+
+	/*
+
+		<div>
 		<Col s={6}>
 			<Row>
 				<Col s={12}>
@@ -25,7 +48,7 @@ let GeneratorIdea = () => {
 		</Col>
 	</div>
 
-	/*
+
 	console.log('Generator Idea');
 	return(
 		<div id='generator-idea' className='col s6'>
@@ -36,6 +59,3 @@ let GeneratorIdea = () => {
 			<GeneratorIdeaModal />
 		</div>
 		*/
-		);
-}
-export default GeneratorIdea;

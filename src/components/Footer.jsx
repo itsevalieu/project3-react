@@ -1,10 +1,29 @@
 // Footer Component - footer.jsx
 import React, { Component } from "react";
+import { Button } from 'react-materialize';
+import '../../public/assets/css/footer.css';
+
 //import "./Footer.css";
 
 class Footer extends Component{
 	render(){
 		return(
+			<footer>
+				<ul id='footer'>
+					<li className='left'>
+						&copy; CODESPIRATION <i>Beta</i> 2017. All Rights Reserved.&nbsp;
+					</li>
+					<li className='left' id='learn-more'>
+						<a href='/about'><i> Learn More</i></a>
+					</li>
+				</ul>
+			</footer>
+			);
+	}
+}
+export default Footer;
+
+/*
 			<footer id="footer" className="page-footer grey darken-1">
 				<div className="container">
 					<div className="row">
@@ -19,7 +38,4 @@ class Footer extends Component{
 					</div>
 				</div>
 			</footer>
-			);
-	}
-}
-export default Footer;
+*/

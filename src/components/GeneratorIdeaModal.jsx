@@ -44,6 +44,7 @@ class GeneratorIdeaModal extends Component {
 				</Col>
 			</Row>
 		</div>
+
 		);
 	}
 }

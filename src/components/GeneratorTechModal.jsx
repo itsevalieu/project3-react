@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Col, Row } from 'react-materialize';
+import { Col, Row } from 'react-materialize';
 
 const frontLang = ['Javascript', 'Python', 'PHP', 'jQuery', 'Something Else'];
 const backLang = ['Java', 'Ruby', 'Python', 'Perl'];
@@ -24,7 +24,6 @@ class GeneratorTechModal extends Component {
 		};
 	}
 	render(){
-
 	const divStyle = {
 		"fontFamily": "'Lato', sans-serif", 
 		"color": "black", 
