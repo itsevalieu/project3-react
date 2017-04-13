@@ -1,7 +1,7 @@
 // Footer Component - footer.jsx
 import React, { Component } from "react";
 import { Button } from 'react-materialize';
-import '../../public/assets/css/footer.css';
+import '../public/assets/css/footer.css';
 
 //import "./Footer.css";
 

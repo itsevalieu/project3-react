@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logoHTML from '../../public/assets/images/HTML.png';
-import logoCSS from '../../public/assets/images/CSS.png';
-import logoJS from '../../public/assets/images/JS.png';
+import logoHTML from '../public/assets/images/HTML.png';
+import logoCSS from '../public/assets/images/CSS.png';
+import logoJS from '../public/assets/images/JS.png';
 
 class TechWindow extends Component {
 	render() {

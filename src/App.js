@@ -1,9 +1,8 @@
 import React, { PropTypes, Component } from 'react';
-import './App.css';
-import Header from './components/Header';
-import AuthHeader from './components/AuthHeader';
-import Footer from './components/Footer';
-import AuthFooter from './components/authFooter';
+import Header from './components/Header.jsx';
+import AuthHeader from './components/AuthHeader.jsx';
+import Footer from './components/Footer.jsx';
+import AuthFooter from './components/authFooter.jsx';
 
 function getLocation() {
   let location = window.location.href;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Modal, Col, Row } from 'react-materialize';
-import GeneratorIdeaModal from './GeneratorIdeaModal';
+import GeneratorIdeaModal from './GeneratorIdeaModal.jsx';
 
 class GeneratorIdea extends Component {
 	render() {

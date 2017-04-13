@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Button, Modal } from 'react-materialize';
-import Logo from '../../public/assets/images/logo.png';
+import Logo from '../public/assets/images/logo.png';
 import SignInModal from './signInModal.jsx';
 import SignUpModal from './signUpModal.jsx';
-import '../../public/assets/css/header.css';
+import '../public/assets/css/header.css';
 
 class Header extends Component {
 	render() {

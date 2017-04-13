@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Modal } from 'react-materialize';
-import Logo from '../../public/assets/images/logo.png';
-import '../../public/assets/css/header.css';
+import Logo from '../public/assets/images/logo.png';
+import '../public/assets/css/header.css';
 
 class AuthHeader extends Component {
 	render() {

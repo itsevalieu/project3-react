@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Icon, Row } from 'react-materialize';
-import userAvatar from '../../public/assets/images/user-image.png';
+import userAvatar from '../public/assets/images/user-image.png';
 
 function getUserDetails() {
 	let userImage = document.querySelector('.profileImage');

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ideaCard from "../components/ideaCard";
+import ideaCard from "../components/ideaCard.jsx";
 
 //Import ideaCard data from Mongo database table ideas
 const IDEA_CARDS = [];
