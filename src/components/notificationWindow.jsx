@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Icon, Row, Badge, Collapsible } from 'react-materialize';
-
-let NotificationWindow = () => {
+class NotificationWindow extends Component {
+	render() {
 	console.log('dashboard right column');
 	return(
-		<Row id='dash-rightColumn' s={6}>
+		<div id='dashNotifications'>
 			<h4 className='grey-text text-darken-4'><span>Notifications</span></h4>
 			<Collapsible data-collapsible='accordian'>
 				<li>
@@ -54,8 +54,8 @@ let NotificationWindow = () => {
 					</div>
 				</li>
 			</Collapsible>
-
-		</Row>
+		</div>
 		);
+	}
 }
 export default NotificationWindow;

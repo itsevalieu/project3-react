@@ -13,10 +13,10 @@ class AuthFooter extends Component {
 			<footer>
 				<ul id='footer'>
 					<li className='left'>
-						&copy; CODESPIRATION <i>Beta</i> 2017. All Rights Reserved.
+						&copy; CODESPIRATION <i>Beta</i> 2017. All Rights Reserved.&nbsp;
 					</li>
 					<li className='left' id='learn-more'>
-						<a href='/about'><i>Learn More</i></a>
+						<a href='/about'> <i>Learn More</i></a>
 					</li>
 					<li className='right'>
 						<Button id='signOut' onClick={signOut}>
@@ -28,8 +28,6 @@ class AuthFooter extends Component {
 		);
 	}
 }
-
-
 export default AuthFooter;
 
 /*

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Icon, Row } from 'react-materialize';
+import userAvatar from '../../public/assets/images/user-image.png';
 
 function getUserDetails() {
 	let userImage = document.querySelector('.profileImage');
@@ -7,42 +8,28 @@ function getUserDetails() {
 	let userName = document.querySelector('.profileName');
 	console.log(userName);
 }
-
-const SideNav = () => {
+class SideNav extends Component {
+	render() {
 	return (
-		<div>
-			<Row className='profileData'>
-				<a href='/edit-profile'>
-				<div id='profileImage'>
-					<Icon className='large'>perm_identity</Icon>
-				</div>
-				<div id='profileName'>
-					Demo Guest
-				</div>
-				</a>
-			</Row>
-			<Row className='sideNavBar'>
-				<div>
-					<a href='/generator'>
-					GENERATOR
+		<div id='sidebar' className='three columns'>
+			<div id='user-info'>
+				<div className='row'>
+					<a>
+						<img className='user-image' src={userAvatar} />
 					</a>
 				</div>
-			</Row>
-			<Row className='sideNavBar chatroom'>
-				<div>
-					<a href='/chatroom'>
-					CHATROOM
-					</a>
+				<div className='row'>
+					<a className='sidebar-username'>DEMO-USER</a>
 				</div>
-			</Row>
-			<Row className='sideNavBar leaderboard'>
-				<div>
-					<a href='/leaderboard'>
-					LEADERBOARD
-					</a>
+				<div className='row'>
+					<a className='sidebar-name'>First Name Last Name</a>
 				</div>
-			</Row>
+				<div className='row'>
+					<a className='sidebar-email'>demo@codespiration.com</a>
+				</div>
+			</div>
 		</div>
 		);
+	}
 }
 export default SideNav;
