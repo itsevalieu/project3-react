@@ -40,11 +40,11 @@ class GeneratorTechModal extends Component {
 			</Row>
 			<Row>
 				<Col s={12}>
-					<h6>Have you tried using:</h6>
+					<h6>Try Using:</h6>
 					<h4 className="center">{this.props.frontLanguage}</h4>
-					<h6>Have you tried using it with</h6> 
+					<h6>Paired With:</h6> 
 					<h4 className="center">{this.props.backLanguage}</h4>
-					<h6>What about connecting that to a </h6>
+					<h6>To Connect To A </h6>
 					<h4 className="center">{this.props.databaseType}</h4>
 				</Col>
 			</Row>

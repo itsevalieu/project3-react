@@ -14,15 +14,14 @@ class Header extends Component {
 						<a href='#home' className='nav-logo'>
 							<img className='logoImage' src={Logo} />
 						</a>
-						<a href='/submissions'>Submissions</a>
-						<a href='/generator'>Generator</a>
-						<a href='/dashboard'>Dashboard</a>
-						<Modal header='Sign In:' trigger={<Button className='btn green'>Sign Up</Button>}>
-							<SignUpModal />
-						</Modal>
-						<Modal header='' trigger={<Button className='btn red'>Sign In</Button>}>
-							<SignInModal />
-						</Modal>
+						<div className='loginButtons'>
+							<Modal header='Sign In:' trigger={<Button className='btn green'>Sign Up</Button>}>
+								<SignUpModal />
+							</Modal>
+							<Modal header='' trigger={<Button className='btn red'>Sign In</Button>}>
+								<SignInModal />
+							</Modal>
+						</div>
 						{
 						//<a href='' className='icon' onclick={myFunction}>&#9776;</a>
 						}

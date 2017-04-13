@@ -26,6 +26,7 @@
   border: blue;
   background-color: blue;
   color: white;
+  margin-left: 30%;
 }
 .generator-button:hover {
   background-color: white;
@@ -54,4 +55,12 @@
     background-image: url(../images/tech-generator.png);
     color: white;
   }
+}
+
+.ideaModal {
+    fontFamily: 'Lato', sans-serif; 
+    color: black;
+    font-weight: 300;
+    text-transform: uppercase;
+
 }

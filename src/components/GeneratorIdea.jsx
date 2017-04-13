@@ -2,20 +2,24 @@ import React, { Component } from 'react';
 import { Button, Modal, Col, Row } from 'react-materialize';
 import GeneratorIdeaModal from './GeneratorIdeaModal';
 
-let GeneratorIdea = () => {
+class GeneratorIdea extends Component {
+	render() {
 	return(
-		<div>
-			<Col s={6}>
-				<Row>
+		<div id='ideaGenerator'>
+			<Col s={6} className='container'>
+				<Row className='generator-box'>
 					<Col s={12}>
-					<h5 className='header light'>
+					<h3 className='header light'>
 						I need a new project <b>idea</b>...
-					</h5>
+					</h3>
+					<p>
+						Need inspiration for a coding project?  Click below to randomly generate a revolutionary idea!
+					</p>
 					</Col>
 				</Row>
 				<Row>
 					<Col s={12}>
-						<Modal actions={<Button waves='light' className='btn-btn-large red' modal='close'>Accept</Button>} trigger={<Button className='red btn btn-large' waves='light'>Give Me Ideas</Button>}>
+						<Modal actions={<Button waves='light' className='btn-btn-large red' modal='close'>Accept</Button>} trigger={<Button className='button generator-button' waves='light'>Give Me Ideas</Button>}>
 							<GeneratorIdeaModal />
 						</Modal>
 					</Col>
@@ -23,6 +27,7 @@ let GeneratorIdea = () => {
 			</Col>
 		</div>
 	);
+}
 }
 export default GeneratorIdea;
 
