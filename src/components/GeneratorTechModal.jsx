@@ -44,8 +44,8 @@ class GeneratorTechModal extends Component {
 					<h4 className="center">{this.props.frontLanguage}</h4>
 					<h6>Paired With:</h6> 
 					<h4 className="center">{this.props.backLanguage}</h4>
-					<h6>To Connect To A </h6>
-					<h4 className="center">{this.props.databaseType}</h4>
+					<h6>To Connect to a </h6>
+					<h4 className="center">{this.props.databaseType} Database</h4>
 				</Col>
 			</Row>
 		</div>

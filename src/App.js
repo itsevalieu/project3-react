@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import AuthHeader from './components/AuthHeader';
 import Footer from './components/Footer';
-import AuthFooter from './components/AuthFooter';
+import AuthFooter from './components/authFooter';
 
 function getLocation() {
   let location = window.location.href;
